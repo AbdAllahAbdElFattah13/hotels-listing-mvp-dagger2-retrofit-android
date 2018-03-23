@@ -1,9 +1,55 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:layout_margin="8dp"
     tools:context="com.tajawa.abdallah.tajawal_android_task.Activitys.DetailsHotel.DetailsHotelActivity">
 
-</android.support.constraint.ConstraintLayout>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:id="@+id/iv_hotel_image"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <TextView
+            android:id="@+id/tv_hotel_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/iv_hotel_image"
+            android:text="name" />
+
+        <TextView
+            android:id="@+id/tv_hotel_address"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/tv_hotel_name"
+            android:paddingTop="8dp"
+            android:text="address" />
+
+        <TextView
+            android:id="@+id/tv_hotel_high_rate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/tv_hotel_address"
+            android:paddingTop="8dp"
+            android:text="high rate" />
+
+        <TextView
+            android:id="@+id/tv_hotel_low_rate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/tv_hotel_address"
+            android:layout_toEndOf="@id/tv_hotel_high_rate"
+            android:paddingEnd="8dp"
+            android:paddingStart="8dp"
+            android:paddingTop="8dp"
+            android:text="low rate"
+            android:textStyle="bold" />
+
+    </RelativeLayout>
+
+</ScrollView>
