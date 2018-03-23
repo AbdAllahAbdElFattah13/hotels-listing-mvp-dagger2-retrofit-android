@@ -1,9 +1,11 @@
 package com.tajawa.abdallah.tajawal_android_task.Activitys.ListingHotels
 
+import android.content.Intent
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
+import com.tajawa.abdallah.tajawal_android_task.Activitys.DetailsHotel.DetailsHotelActivity
 import com.tajawa.abdallah.tajawal_android_task.Activitys.ListingHotels.Adapters.HotelItemsAdapter.HotelItemsAdapter
 import com.tajawa.abdallah.tajawal_android_task.DataLayer.DataRepository
 import com.tajawa.abdallah.tajawal_android_task.DataLayer.Remote.Volley.RemoteDataSourceUsingVolley
@@ -44,4 +46,9 @@ class ListingHotelsActivity : AppCompatActivity(), ListingHotelsContract.View {
     override fun setHotelItemsAdapter(hotelItemsAdapter: HotelItemsAdapter) {
         mRecyclerView.adapter = hotelItemsAdapter
     }
+
+    override fun startDetailsActivity() {
+        startActivity(Intent(this, DetailsHotelActivity::class.java))
+    }
+
 }

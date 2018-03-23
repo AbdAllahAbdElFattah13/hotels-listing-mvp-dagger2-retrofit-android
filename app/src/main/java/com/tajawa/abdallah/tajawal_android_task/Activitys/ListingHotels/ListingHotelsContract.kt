@@ -16,6 +16,8 @@ interface ListingHotelsContract {
         fun handleError(errMsg: String)
 
         fun setHotelItemsAdapter(hotelItemsAdapter: HotelItemsAdapter)
+
+        fun startDetailsActivity()
     }
 
     interface Presenter : BasePresenter {
