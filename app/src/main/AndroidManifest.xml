@@ -18,7 +18,9 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".Activitys.DetailsHotel.DetailsHotelActivity"></activity>
+        <activity
+            android:name=".Activitys.DetailsHotel.DetailsHotelActivity"
+            android:parentActivityName=".Activitys.ListingHotels.ListingHotelsActivity" />
     </application>
 
 </manifest>
