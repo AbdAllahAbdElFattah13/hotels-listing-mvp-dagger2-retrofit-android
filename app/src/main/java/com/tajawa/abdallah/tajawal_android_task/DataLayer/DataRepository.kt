@@ -11,7 +11,7 @@ class DataRepository private constructor(remoteDataSource: RemoteDataSource) : R
 
     private val mRemoteDataSource: RemoteDataSource = remoteDataSource
 
-    private lateinit var mHotelsModel: HotelsModel
+    private var mHotelsModel: HotelsModel? = null
     private var mCurrentSelectedHotelIndex: Int = -1
 
     override fun getHotels(callbacks: Callbacks.GetHotelsCallbacks) {
@@ -28,10 +28,24 @@ class DataRepository private constructor(remoteDataSource: RemoteDataSource) : R
     }
 
     override fun setCurrentSelectedHotel(currentSelectedHotelIndex: Int) {
+        if (mHotelsModel == null)
+            throw IllegalArgumentException("HotelsModel has not been init yet!")
+
+        if (currentSelectedHotelIndex < -1 || currentSelectedHotelIndex > mHotelsModel!!.hotel.size)
+            throw IllegalArgumentException("currentSelectedHotelIndex should be within [0, ${mHotelsModel!!.hotel.size})")
+
         mCurrentSelectedHotelIndex = currentSelectedHotelIndex;
     }
 
-    override fun getCurrentSelectedHotel(): HotelModel = mHotelsModel.hotel[mCurrentSelectedHotelIndex]
+    override fun getCurrentSelectedHotel(): HotelModel {
+
+        if (mHotelsModel == null)
+            throw IllegalArgumentException("HotelsModel has not been init yet!")
+        if (mCurrentSelectedHotelIndex == -1)
+            throw IllegalArgumentException("Calling getCurrentSelectedHotel before setting the selected Hotel")
+
+        return mHotelsModel!!.hotel[mCurrentSelectedHotelIndex]
+    }
 
     companion object {
         private var INSTANCE: DataRepository? = null
