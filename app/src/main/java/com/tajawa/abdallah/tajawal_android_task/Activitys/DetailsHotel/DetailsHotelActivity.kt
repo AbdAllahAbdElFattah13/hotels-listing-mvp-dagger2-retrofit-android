@@ -58,15 +58,16 @@ class DetailsHotelActivity : AppCompatActivity(), DetailsHotelContract.View {
             android.R.id.home -> {
                 if (isImageFitScreen) {
                     toggleImageFullScreen()
-                    return true
-                }
+                } else onBackPressed()
+                return true
             }
-            else -> return super.onOptionsItemSelected(item)
+            else -> {
+                return true
+            }
         }
-        return super.onOptionsItemSelected(item)
     }
 
-    // Note: 19-Jul-17 this might fail accourding to the following link "https://stackoverflow.com/questions/42673531/converting-dp-to-px-without-context"
+    // Note: 19-Jul-17 this might fail according to the following link "https://stackoverflow.com/questions/42673531/converting-dp-to-px-without-context"
     private fun fromIntToDp(n: Int): Int = TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, n.toFloat(), Resources.getSystem().displayMetrics).toInt()
 
     private fun toggleImageFullScreen() {
@@ -85,5 +86,11 @@ class DetailsHotelActivity : AppCompatActivity(), DetailsHotelContract.View {
 
     fun onImageViewClick(view: View) {
         toggleImageFullScreen()
+    }
+
+    override fun onBackPressed() {
+        setResult(RESULT_CANCELED)
+        finish()
+        super.onBackPressed()
     }
 }
