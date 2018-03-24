@@ -5,7 +5,7 @@ import com.squareup.picasso.Picasso
 import com.tajawa.abdallah.tajawal_android_task.R
 
 /**
- * Created by AbdAllah Boda on 24-Mar-18.
+ * Created by AbdAllah Abd-El-Fattah on 24-Mar-18.
  */
 object ImageLoaderUtil {
 

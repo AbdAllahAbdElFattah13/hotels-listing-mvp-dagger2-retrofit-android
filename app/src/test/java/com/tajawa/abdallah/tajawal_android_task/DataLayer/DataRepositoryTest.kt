@@ -6,7 +6,7 @@ import com.tajawa.abdallah.tajawal_android_task.DataLayer.Models.HotelsModel.Hot
 import org.junit.Test
 
 /**
- * Created by AbdAllah Boda on 24-Mar-18.
+ * Created by AbdAllah Abd-El-Fattah on 24-Mar-18.
  */
 class DataRepositoryTest {
 

@@ -5,7 +5,7 @@ import com.tajawa.abdallah.tajawal_android_task.DataLayer.Models.HotelsModel.Hot
 import com.tajawa.abdallah.tajawal_android_task.DataLayer.Remote.RemoteDataSource
 
 /**
- * Created by AbdAllah Boda on 23-Mar-18.
+ * Created by AbdAllah Abd-El-Fattah on 23-Mar-18.
  */
 class DataRepository private constructor(remoteDataSource: RemoteDataSource) : RepositorySource {
 

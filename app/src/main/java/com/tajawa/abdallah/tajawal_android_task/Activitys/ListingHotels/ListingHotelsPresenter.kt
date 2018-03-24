@@ -8,7 +8,7 @@ import com.tajawa.abdallah.tajawal_android_task.DataLayer.DataRepository
 import com.tajawa.abdallah.tajawal_android_task.DataLayer.Models.HotelsModel.HotelsModel
 
 /**
- * Created by AbdAllah Boda on 23-Mar-18.
+ * Created by AbdAllah Abd-El-Fattah on 23-Mar-18.
  */
 class ListingHotelsPresenter(val dataRepository: DataRepository, val view: ListingHotelsContract.View) : ListingHotelsContract.Presenter, HotelItemRowView.HandleOnHotelItemClick {
 

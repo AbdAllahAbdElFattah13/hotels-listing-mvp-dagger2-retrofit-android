@@ -10,7 +10,7 @@ import com.tajawa.abdallah.tajawal_android_task.R
 
 
 /**
- * Created by AbdAllah Boda on 23-Mar-18.
+ * Created by AbdAllah Abd-El-Fattah on 23-Mar-18.
  */
 class HotelItemViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView), HotelItemRowView, View.OnClickListener {
 

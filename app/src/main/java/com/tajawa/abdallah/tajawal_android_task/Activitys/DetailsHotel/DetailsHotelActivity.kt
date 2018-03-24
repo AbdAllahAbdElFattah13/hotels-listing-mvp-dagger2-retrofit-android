@@ -20,6 +20,23 @@ class DetailsHotelActivity : AppCompatActivity(), DetailsHotelContract.View {
 
     private var isImageFitScreen: Boolean = false
 
+    // Note: 19-Jul-17 this might fail according to the following link "https://stackoverflow.com/questions/42673531/converting-dp-to-px-without-context"
+    private fun fromIntToDp(n: Int): Int = TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, n.toFloat(), Resources.getSystem().displayMetrics).toInt()
+
+    private fun toggleImageFullScreen() {
+        if (isImageFitScreen) {
+            iv_hotel_image.layoutParams = RelativeLayout.LayoutParams(RelativeLayout.LayoutParams.MATCH_PARENT, fromIntToDp(250))
+            iv_hotel_image.adjustViewBounds = true
+            rv_hotel_data_without_image.visibility = View.VISIBLE
+        } else {
+            iv_hotel_image.layoutParams = RelativeLayout.LayoutParams(RelativeLayout.LayoutParams.MATCH_PARENT, RelativeLayout.LayoutParams.MATCH_PARENT)
+            iv_hotel_image.scaleType = ImageView.ScaleType.FIT_XY
+            iv_hotel_image.adjustViewBounds = true
+            rv_hotel_data_without_image.visibility = View.GONE
+        }
+        isImageFitScreen = !isImageFitScreen
+    }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_details_hotel)
@@ -56,9 +73,7 @@ class DetailsHotelActivity : AppCompatActivity(), DetailsHotelContract.View {
         when (item.itemId) {
         // Respond to the action bar's Up/Home button
             android.R.id.home -> {
-                if (isImageFitScreen) {
-                    toggleImageFullScreen()
-                } else onBackPressed()
+                onBackPressed()
                 return true
             }
             else -> {
@@ -67,30 +82,17 @@ class DetailsHotelActivity : AppCompatActivity(), DetailsHotelContract.View {
         }
     }
 
-    // Note: 19-Jul-17 this might fail according to the following link "https://stackoverflow.com/questions/42673531/converting-dp-to-px-without-context"
-    private fun fromIntToDp(n: Int): Int = TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, n.toFloat(), Resources.getSystem().displayMetrics).toInt()
-
-    private fun toggleImageFullScreen() {
-        if (isImageFitScreen) {
-            iv_hotel_image.layoutParams = RelativeLayout.LayoutParams(RelativeLayout.LayoutParams.MATCH_PARENT, fromIntToDp(250))
-            iv_hotel_image.adjustViewBounds = true
-            rv_hotel_data_without_image.visibility = View.VISIBLE
-        } else {
-            iv_hotel_image.layoutParams = RelativeLayout.LayoutParams(RelativeLayout.LayoutParams.MATCH_PARENT, RelativeLayout.LayoutParams.MATCH_PARENT)
-            iv_hotel_image.scaleType = ImageView.ScaleType.FIT_XY
-            iv_hotel_image.adjustViewBounds = true
-            rv_hotel_data_without_image.visibility = View.GONE
-        }
-        isImageFitScreen = !isImageFitScreen
-    }
-
     fun onImageViewClick(view: View) {
         toggleImageFullScreen()
     }
 
     override fun onBackPressed() {
-        setResult(RESULT_CANCELED)
-        finish()
-        super.onBackPressed()
+        if (isImageFitScreen) {
+            toggleImageFullScreen()
+        } else {
+            setResult(RESULT_CANCELED)
+            finish()
+            super.onBackPressed()
+        }
     }
 }

@@ -6,7 +6,7 @@ import com.android.volley.RequestQueue
 import com.android.volley.toolbox.Volley
 
 /**
- * Created by AbdAllah Boda on 23-Mar-18.
+ * Created by AbdAllah Abd-El-Fattah on 23-Mar-18.
  */
 class VolleyImplementation private constructor(context: Context) {
     private val mRequestQueue: RequestQueue

@@ -14,7 +14,7 @@ import org.json.JSONObject
 import java.io.UnsupportedEncodingException
 
 /**
- * Created by AbdAllah Boda on 25-Feb-18.
+ * Created by AbdAllah Abd-El-Fattah on 25-Feb-18.
  */
 
 class GsonRequest<ResponseType>(method: Int, url: String, private val clazz: Class<ResponseType>, private val headers: Map<String, String>?,

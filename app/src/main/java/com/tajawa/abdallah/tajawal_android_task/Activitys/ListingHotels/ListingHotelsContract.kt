@@ -6,7 +6,7 @@ import com.tajawa.abdallah.tajawal_android_task.BasePresenter
 import com.tajawa.abdallah.tajawal_android_task.DataLayer.Models.HotelsModel.HotelsModel
 
 /**
- * Created by AbdAllah Boda on 23-Mar-18.
+ * Created by AbdAllah Abd-El-Fattah on 23-Mar-18.
  */
 interface ListingHotelsContract {
 

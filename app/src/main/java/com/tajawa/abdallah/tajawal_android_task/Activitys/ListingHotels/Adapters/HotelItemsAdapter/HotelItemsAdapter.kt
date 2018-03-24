@@ -7,7 +7,7 @@ import com.tajawa.abdallah.tajawal_android_task.Activitys.ListingHotels.ListingH
 import com.tajawa.abdallah.tajawal_android_task.R
 
 /**
- * Created by AbdAllah Boda on 23-Mar-18.
+ * Created by AbdAllah Abd-El-Fattah on 23-Mar-18.
  */
 class HotelItemsAdapter(val presenter: ListingHotelsContract.Presenter) : RecyclerView.Adapter<HotelItemViewHolder>() {
 

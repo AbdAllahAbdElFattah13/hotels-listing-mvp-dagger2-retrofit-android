@@ -4,7 +4,7 @@ import com.tajawa.abdallah.tajawal_android_task.DataLayer.Models.HotelsModel.Hot
 import com.tajawa.abdallah.tajawal_android_task.DataLayer.RepositorySource
 
 /**
- * Created by AbdAllah Boda on 23-Mar-18.
+ * Created by AbdAllah Abd-El-Fattah on 23-Mar-18.
  */
 class DetailsHotelPresenter(val repositorySource: RepositorySource, val view: DetailsHotelContract.View) : DetailsHotelContract.Presenter {
 
