@@ -3,6 +3,7 @@ package com.tajawa.abdallah.tajawal_android_task.Activitys.ListingHotels
 import android.content.Intent
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
+import android.support.v7.widget.DividerItemDecoration
 import android.support.v7.widget.LinearLayoutManager
 import android.view.View
 import com.tajawa.abdallah.tajawal_android_task.Activitys.DetailsHotel.DetailsHotelActivity
@@ -21,7 +22,12 @@ class ListingHotelsActivity : AppCompatActivity(), ListingHotelsContract.View {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_listing_hotels)
 
-        rv_hotels_listing.layoutManager = LinearLayoutManager(this)
+        val li = LinearLayoutManager(this)
+        val dividerItemDecoration = DividerItemDecoration(this, li.orientation)
+        rv_hotels_listing.layoutManager = li
+        rv_hotels_listing.setHasFixedSize(true)
+        rv_hotels_listing.addItemDecoration(dividerItemDecoration)
+
         ListingHotelsPresenter(
                 DataRepository.getInstance(
                         RemoteDataSourceUsingVolley.getInstance(this)

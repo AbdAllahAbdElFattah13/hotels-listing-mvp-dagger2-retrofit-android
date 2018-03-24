@@ -5,6 +5,7 @@ import android.support.v7.widget.RecyclerView
 import android.view.View
 import android.widget.ImageView
 import android.widget.TextView
+import com.tajawa.abdallah.tajawal_android_task.Activitys.ImageLoaderUtil
 import com.tajawa.abdallah.tajawal_android_task.R
 
 
@@ -30,6 +31,7 @@ class HotelItemViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView), H
     }
 
     override fun setImage(imageUrl: String) {
+        ImageLoaderUtil.loadImage(url = imageUrl, imageView = mImageIv)
     }
 
     override fun onClick(v: View) {

@@ -3,7 +3,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:layout_margin="8dp"
     tools:context="com.tajawa.abdallah.tajawal_android_task.Activitys.DetailsHotel.DetailsHotelActivity">
 
     <RelativeLayout
@@ -13,13 +12,17 @@
         <ImageView
             android:id="@+id/iv_hotel_image"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            android:layout_height="250dp"
+            android:adjustViewBounds="true" />
 
         <TextView
             android:id="@+id/tv_hotel_name"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@id/iv_hotel_image"
+            android:paddingEnd="8dp"
+            android:paddingStart="8dp"
+            android:paddingTop="8dp"
             android:text="name" />
 
         <TextView
@@ -27,6 +30,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@id/tv_hotel_name"
+            android:paddingEnd="8dp"
+            android:paddingStart="8dp"
             android:paddingTop="8dp"
             android:text="address" />
 
@@ -35,6 +40,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@id/tv_hotel_address"
+            android:paddingEnd="8dp"
+            android:paddingStart="8dp"
             android:paddingTop="8dp"
             android:text="high rate" />
 

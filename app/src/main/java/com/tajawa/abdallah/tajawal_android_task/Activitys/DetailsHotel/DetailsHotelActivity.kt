@@ -3,6 +3,7 @@ package com.tajawa.abdallah.tajawal_android_task.Activitys.DetailsHotel
 import android.graphics.Paint
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
+import com.tajawa.abdallah.tajawal_android_task.Activitys.ImageLoaderUtil
 import com.tajawa.abdallah.tajawal_android_task.DataLayer.DataRepository
 import com.tajawa.abdallah.tajawal_android_task.DataLayer.Remote.Volley.RemoteDataSourceUsingVolley
 import com.tajawa.abdallah.tajawal_android_task.R
@@ -24,6 +25,7 @@ class DetailsHotelActivity : AppCompatActivity(), DetailsHotelContract.View {
     }
 
     override fun setImageUrl(imageUrl: String) {
+        ImageLoaderUtil.loadImage(url = imageUrl, imageView = iv_hotel_image, h = -1)
     }
 
     override fun setHotelName(name: String) {
