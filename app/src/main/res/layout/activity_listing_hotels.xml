@@ -1,14 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="com.tajawa.abdallah.tajawal_android_task.Activitys.ListingHotels.ListingHotelsActivity">
 
+    <include
+        android:id="@+id/loading_view"
+        layout="@layout/loading_view" />
+
+    <include
+        android:id="@+id/error_view"
+        layout="@layout/error_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/loading_view" />
 
     <android.support.v7.widget.RecyclerView
         android:id="@+id/rv_hotels_listing"
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+        android:layout_height="match_parent"
+        android:layout_below="@+id/error_view" />
 
-</android.support.constraint.ConstraintLayout>
+</RelativeLayout>

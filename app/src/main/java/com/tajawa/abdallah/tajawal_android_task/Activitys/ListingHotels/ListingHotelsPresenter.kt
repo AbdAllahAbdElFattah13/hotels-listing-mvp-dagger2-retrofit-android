@@ -20,8 +20,7 @@ class ListingHotelsPresenter(val dataRepository: DataRepository, val view: Listi
         mView.setLoading(loading = true)
         mDataRepo.getHotels(object : Callbacks.GetHotelsCallbacks {
             override fun onSuccess(result: HotelsModel) {
-                onGetHotelsSuccess(result)
-                mView.setHotelItemsAdapter(HotelItemsAdapter(presenter = this@ListingHotelsPresenter))
+                onGetHotelsSuccess(hotelsMode = result)
             }
 
             override fun onError(err: String) {
@@ -32,10 +31,12 @@ class ListingHotelsPresenter(val dataRepository: DataRepository, val view: Listi
 
     override fun onGetHotelsSuccess(hotelsMode: HotelsModel) {
         mModel = hotelsMode
+        mView.setHotelItemsAdapter(HotelItemsAdapter(presenter = this@ListingHotelsPresenter))
+        mView.handleSuccess()
+        mView.setLoading(loading = false)
     }
 
     override fun onGetHotelsFail(err: String) {
-        mView.setLoading(false)
         mView.handleError(errMsg = err)
     }
 

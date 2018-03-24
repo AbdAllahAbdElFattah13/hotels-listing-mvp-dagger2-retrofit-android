@@ -11,7 +11,7 @@ class DataRepository private constructor(remoteDataSource: RemoteDataSource) : R
 
     private val mRemoteDataSource: RemoteDataSource = remoteDataSource
 
-    private var mHotelsModel: HotelsModel? = null
+    private lateinit var mHotelsModel: HotelsModel
     private var mCurrentSelectedHotelIndex: Int = -1
 
     override fun getHotels(callbacks: Callbacks.GetHotelsCallbacks) {
@@ -31,7 +31,7 @@ class DataRepository private constructor(remoteDataSource: RemoteDataSource) : R
         mCurrentSelectedHotelIndex = currentSelectedHotelIndex;
     }
 
-    override fun getCurrentSelectedHotel(): HotelModel = mHotelsModel!!.hotel[mCurrentSelectedHotelIndex]
+    override fun getCurrentSelectedHotel(): HotelModel = mHotelsModel.hotel[mCurrentSelectedHotelIndex]
 
     companion object {
         private var INSTANCE: DataRepository? = null

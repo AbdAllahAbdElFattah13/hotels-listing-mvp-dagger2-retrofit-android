@@ -13,6 +13,8 @@ interface ListingHotelsContract {
     interface View {
         fun setLoading(loading: Boolean)
 
+        fun handleSuccess()
+
         fun handleError(errMsg: String)
 
         fun setHotelItemsAdapter(hotelItemsAdapter: HotelItemsAdapter)

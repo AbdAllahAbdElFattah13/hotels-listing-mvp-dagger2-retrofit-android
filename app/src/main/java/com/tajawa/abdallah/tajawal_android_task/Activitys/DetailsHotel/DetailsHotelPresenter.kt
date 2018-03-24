@@ -1,6 +1,5 @@
 package com.tajawa.abdallah.tajawal_android_task.Activitys.DetailsHotel
 
-import android.util.Log
 import com.tajawa.abdallah.tajawal_android_task.DataLayer.Models.HotelsModel.HotelModel
 import com.tajawa.abdallah.tajawal_android_task.DataLayer.RepositorySource
 
@@ -15,11 +14,15 @@ class DetailsHotelPresenter(val repositorySource: RepositorySource, val view: De
 
     override fun start() {
         mModel = mDataRepo.getCurrentSelectedHotel()
-        Log.d("Boda", mModel.toString())
-        mView.setImageUrl(mModel.image[0].url)
-        mView.setHotelName(mModel.summary.hotelName)
-        mView.setHotelAddress(mModel.location.address)
-        mView.setLowRate(mModel.summary.lowRate.toString())
-        mView.setHighRate(mModel.summary.highRate.toString())
+        onGetCurrentSelectedHotelSuccess(mModel)
+    }
+
+    override fun onGetCurrentSelectedHotelSuccess(currentHotel: HotelModel) {
+        mView.setImageUrl(currentHotel.image[0].url)
+        mView.setHotelName(currentHotel.summary.hotelName)
+        mView.setHotelAddress(currentHotel.location.address)
+        mView.setLowRate(currentHotel.summary.lowRate.toString())
+        mView.setHighRate(currentHotel.summary.highRate.toString())
+
     }
 }
