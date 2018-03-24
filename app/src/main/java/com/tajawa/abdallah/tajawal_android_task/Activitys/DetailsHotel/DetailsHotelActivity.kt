@@ -43,6 +43,7 @@ class DetailsHotelActivity : AppCompatActivity(), DetailsHotelContract.View {
 
         tv_hotel_high_rate.paintFlags = tv_hotel_high_rate.paintFlags + Paint.STRIKE_THRU_TEXT_FLAG
 
+        //Injecting Dependencies
         DetailsHotelPresenter(
                 DataRepository.getInstance(
                         RemoteDataSourceUsingVolley.getInstance(this)

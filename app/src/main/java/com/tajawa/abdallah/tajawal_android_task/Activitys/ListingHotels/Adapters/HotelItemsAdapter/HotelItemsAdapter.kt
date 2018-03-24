@@ -9,8 +9,13 @@ import com.tajawa.abdallah.tajawal_android_task.R
 /**
  * Created by AbdAllah Abd-El-Fattah on 23-Mar-18.
  */
+/**Delegating all of the adapter responsibilities to the
+ *presenter - in the spirit of MVP and passive view -  to keep the model inside the presenter,
+ *and also to keep all data-related operation [modifying
+ *the Model by any means] inside the DataRepo.
+ *To read more: https://android.jlelse.eu/recyclerview-in-mvp-passive-views-approach-8dd74633158.
+ * */
 class HotelItemsAdapter(val presenter: ListingHotelsContract.Presenter) : RecyclerView.Adapter<HotelItemViewHolder>() {
-
     private val mPresenter: ListingHotelsContract.Presenter = presenter
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): HotelItemViewHolder {

@@ -3,6 +3,7 @@ package com.tajawa.abdallah.tajawal_android_task.Activitys.ListingHotels
 import android.app.Activity
 import android.content.Intent
 import android.os.Bundle
+import android.support.v4.content.ContextCompat
 import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.DividerItemDecoration
 import android.support.v7.widget.LinearLayoutManager
@@ -15,6 +16,7 @@ import com.tajawa.abdallah.tajawal_android_task.DataLayer.Remote.Volley.RemoteDa
 import com.tajawa.abdallah.tajawal_android_task.R
 import kotlinx.android.synthetic.main.activity_listing_hotels.*
 import kotlinx.android.synthetic.main.error_view.*
+import kotlinx.android.synthetic.main.loading_view.*
 
 class ListingHotelsActivity : AppCompatActivity(), ListingHotelsContract.View {
 
@@ -59,6 +61,8 @@ class ListingHotelsActivity : AppCompatActivity(), ListingHotelsContract.View {
         rv_hotels_listing.setHasFixedSize(true)
         rv_hotels_listing.addItemDecoration(dividerItemDecoration)
 
+        progress_view.color = ContextCompat.getColor(this, R.color.colorLoading)
+
         //Injecting Dependencies
         mPresenter = ListingHotelsPresenter(
                 DataRepository.getInstance(
@@ -75,7 +79,7 @@ class ListingHotelsActivity : AppCompatActivity(), ListingHotelsContract.View {
         super.onPause()
         mComingBackFromChild = false
     }
-    
+
     override fun setLoading(loading: Boolean) {
         if (mLoading == loading) return
         if (loading) {

@@ -1,13 +1,15 @@
 package com.tajawa.abdallah.tajawal_android_task.DataLayer.Mocks
 
 import android.content.Context
-import android.support.annotation.VisibleForTesting
 import com.tajawa.abdallah.tajawal_android_task.DataLayer.Callbacks
 import com.tajawa.abdallah.tajawal_android_task.DataLayer.Models.HotelsModel.*
 import com.tajawa.abdallah.tajawal_android_task.DataLayer.Remote.RemoteDataSource
 
 /**
  * Created by AbdAllah Abd-El-Fattah on 24-Mar-18.
+ */
+/**
+ * Mock up data to allow DataRepo to be tested.
  */
 class RemoteDataSourceMock private constructor(context: Context) : RemoteDataSource {
 

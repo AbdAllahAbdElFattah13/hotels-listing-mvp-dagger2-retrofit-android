@@ -6,6 +6,11 @@ import com.tajawa.abdallah.tajawal_android_task.DataLayer.Models.HotelsModel.Hot
 /**
  * Created by AbdAllah Abd-El-Fattah on 23-Mar-18.
  */
+/**
+ * Following the MVP principles, we should make
+ * the view as dump as we can (i.e has no logic whatsoever)
+ * and move all of the presentation logic to the presenter.s
+ */
 interface DetailsHotelContract {
 
     interface View {
