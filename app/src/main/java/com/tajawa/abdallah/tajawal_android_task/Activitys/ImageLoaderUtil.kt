@@ -11,7 +11,7 @@ object ImageLoaderUtil {
 
     fun loadImage(url: String, imageView: ImageView, w: Int = 300, h: Int = 300, withPlaceholder: Boolean = true) {
 
-        var request = Picasso.with(imageView.context).load(url)
+        var request = Picasso.with(imageView.context).load(url).error(R.drawable.ic_broken_image_black_24dp)
 
         //pass any values less than 0 to not resize. (i.e if you want it to wrap content or match parent
         if (w > 0 && h > 0) request = request.resize(w, h).centerCrop()
