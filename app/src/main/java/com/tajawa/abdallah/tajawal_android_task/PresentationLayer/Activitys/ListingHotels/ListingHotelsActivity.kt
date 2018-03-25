@@ -10,7 +10,7 @@ import android.support.v7.widget.LinearLayoutManager
 import android.view.View
 import com.tajawa.abdallah.tajawal_android_task.Activitys.DetailsHotel.DetailsHotelActivity
 import com.tajawa.abdallah.tajawal_android_task.Activitys.ListingHotels.Adapters.HotelItemsAdapter.HotelItemsAdapter
-import com.tajawa.abdallah.tajawal_android_task.BasePresenter
+import com.tajawa.abdallah.tajawal_android_task.PresentationLayer.BasePresenter
 import com.tajawa.abdallah.tajawal_android_task.DataLayer.DataRepository
 import com.tajawa.abdallah.tajawal_android_task.DataLayer.Remote.Volley.RemoteDataSourceUsingVolley
 import com.tajawa.abdallah.tajawal_android_task.R
