@@ -1,6 +1,6 @@
 package com.tajawa.abdallah.tajawal_android_task.Activitys.DetailsHotel
 
-import com.tajawa.abdallah.tajawal_android_task.BasePresenter
+import com.tajawa.abdallah.tajawal_android_task.PresentationLayer.BasePresenter
 import com.tajawa.abdallah.tajawal_android_task.DataLayer.Models.HotelsModel.HotelModel
 
 /**

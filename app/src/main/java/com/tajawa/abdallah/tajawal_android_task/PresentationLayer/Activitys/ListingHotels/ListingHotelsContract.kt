@@ -2,7 +2,7 @@ package com.tajawa.abdallah.tajawal_android_task.Activitys.ListingHotels
 
 import com.tajawa.abdallah.tajawal_android_task.Activitys.ListingHotels.Adapters.HotelItemsAdapter.HotelItemViewHolder
 import com.tajawa.abdallah.tajawal_android_task.Activitys.ListingHotels.Adapters.HotelItemsAdapter.HotelItemsAdapter
-import com.tajawa.abdallah.tajawal_android_task.BasePresenter
+import com.tajawa.abdallah.tajawal_android_task.PresentationLayer.BasePresenter
 import com.tajawa.abdallah.tajawal_android_task.DataLayer.Models.HotelsModel.HotelsModel
 
 /**
