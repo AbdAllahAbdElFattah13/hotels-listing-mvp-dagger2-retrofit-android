@@ -76,14 +76,14 @@ class DetailsHotelActivity : AppCompatActivity(), DetailsHotelContract.View {
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        when (item.itemId) {
+        return when (item.itemId) {
         // Respond to the action bar's Up/Home button
             android.R.id.home -> {
                 onBackPressed()
-                return true
+                true
             }
             else -> {
-                return true
+                true
             }
         }
     }
