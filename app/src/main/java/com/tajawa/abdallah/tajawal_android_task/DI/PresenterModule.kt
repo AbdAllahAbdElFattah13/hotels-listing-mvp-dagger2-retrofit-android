@@ -1,5 +1,7 @@
 package com.tajawa.abdallah.tajawal_android_task.DI
 
+import com.tajawa.abdallah.tajawal_android_task.Activitys.DetailsHotel.DetailsHotelContract
+import com.tajawa.abdallah.tajawal_android_task.Activitys.DetailsHotel.DetailsHotelPresenter
 import com.tajawa.abdallah.tajawal_android_task.Activitys.ListingHotels.ListingHotelsContract
 import com.tajawa.abdallah.tajawal_android_task.Activitys.ListingHotels.ListingHotelsPresenter
 import com.tajawa.abdallah.tajawal_android_task.DataLayer.RepositorySource
@@ -15,4 +17,9 @@ class PresenterModule {
     @Provides
     @Singleton
     fun provideListingHotelsPresenter(repositorySource: RepositorySource): ListingHotelsContract.Presenter = ListingHotelsPresenter(repositorySource)
+
+    @Provides
+    @Singleton
+    fun provideDetailsHotelPresenter(repositorySource: RepositorySource): DetailsHotelContract.Presenter = DetailsHotelPresenter(repositorySource)
+
 }

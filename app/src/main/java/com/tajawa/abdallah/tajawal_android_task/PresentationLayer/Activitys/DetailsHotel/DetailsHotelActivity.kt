@@ -13,10 +13,13 @@ import com.tajawa.abdallah.tajawal_android_task.Activitys.ImageLoaderUtil
 import com.tajawa.abdallah.tajawal_android_task.R
 import com.tajawa.abdallah.tajawal_android_task.TajawalApp
 import kotlinx.android.synthetic.main.activity_details_hotel.*
+import javax.inject.Inject
 
 
 class DetailsHotelActivity : AppCompatActivity(), DetailsHotelContract.View {
 
+    @Inject
+    lateinit var mPresenter: DetailsHotelContract.Presenter
     private var isImageFitScreen: Boolean = false
 
     // Note: 19-Jul-17 this might fail according to the following link "https://stackoverflow.com/questions/42673531/converting-dp-to-px-without-context"
@@ -44,6 +47,7 @@ class DetailsHotelActivity : AppCompatActivity(), DetailsHotelContract.View {
 
         //Injecting Dependencies
         (application as TajawalApp).mTajawalComponent.inject(this)
+        mPresenter.setView(this)
     }
 
     override fun setImageUrl(imageUrl: String) {

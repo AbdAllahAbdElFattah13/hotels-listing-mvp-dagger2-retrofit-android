@@ -7,7 +7,7 @@ import javax.inject.Inject
 /**
  * Created by AbdAllah Abd-El-Fattah on 23-Mar-18.
  */
-class DetailsHotelPresenter @Inject constructor(val mDataRepo: RepositorySource) : DetailsHotelContract.Presenter {
+class DetailsHotelPresenter @Inject constructor(private val mDataRepo: RepositorySource) : DetailsHotelContract.Presenter {
 
     private lateinit var mView: DetailsHotelContract.View
     private lateinit var mModel: HotelModel
