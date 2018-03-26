@@ -84,7 +84,8 @@ class ListingHotelsActivity : AppCompatActivity(), ListingHotelsContract.View {
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
-        if (requestCode == mRequestCodeToDetectedIfComingBackFromChildActivity && resultCode == Activity.RESULT_CANCELED)
+        if (requestCode == mRequestCodeToDetectedIfComingBackFromChildActivity
+                && resultCode == Activity.RESULT_CANCELED)
             mComingBackFromChild = true
     }
 
