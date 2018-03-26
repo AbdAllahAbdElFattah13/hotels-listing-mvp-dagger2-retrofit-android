@@ -32,4 +32,8 @@ class HotelDetailsViewMock : DetailsHotelContract.View {
     override fun setHighRate(highRate: String) {
         this.mHighRate = highRate
     }
+
+    override fun startFullScreenActivity() {
+        //won't be tested
+    }
 }
