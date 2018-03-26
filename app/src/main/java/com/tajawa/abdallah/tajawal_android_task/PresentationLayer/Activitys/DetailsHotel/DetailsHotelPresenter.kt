@@ -9,7 +9,7 @@ import javax.inject.Inject
  */
 class DetailsHotelPresenter @Inject constructor(private val mDataRepo: RepositorySource) : DetailsHotelContract.Presenter {
 
-    private lateinit var mView: DetailsHotelContract.View
+    lateinit var mView: DetailsHotelContract.View
     private lateinit var mModel: HotelModel
 
     override fun setView(view: DetailsHotelContract.View) {

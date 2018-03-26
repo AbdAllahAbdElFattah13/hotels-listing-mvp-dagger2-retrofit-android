@@ -1,7 +1,7 @@
 package com.tajawa.abdallah.tajawal_android_task.DataLayer
 
 import android.test.mock.MockContext
-import com.tajawa.abdallah.tajawal_android_task.DataLayer.Mocks.DataLayerMocks.RemoteDataSourceMock
+import com.tajawa.abdallah.tajawal_android_task.Mocks.DataLayerMocks.RemoteDataSourceMock
 import com.tajawa.abdallah.tajawal_android_task.DataLayer.Models.HotelsModel.HotelsModel
 import org.junit.Test
 

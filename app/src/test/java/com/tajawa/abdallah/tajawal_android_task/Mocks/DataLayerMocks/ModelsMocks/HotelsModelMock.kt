@@ -1,4 +1,4 @@
-package com.tajawa.abdallah.tajawal_android_task.DataLayer.Mocks.DataLayerMocks.ModelsMocks
+package com.tajawa.abdallah.tajawal_android_task.Mocks.DataLayerMocks.ModelsMocks
 
 import com.tajawa.abdallah.tajawal_android_task.DataLayer.Models.HotelsModel.*
 

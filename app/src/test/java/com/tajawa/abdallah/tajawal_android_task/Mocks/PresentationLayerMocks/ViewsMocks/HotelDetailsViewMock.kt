@@ -1,4 +1,4 @@
-package com.tajawa.abdallah.tajawal_android_task.DataLayer.Mocks.PresentationLayerMocks.ViewsMocks
+package com.tajawa.abdallah.tajawal_android_task.Mocks.PresentationLayerMocks.ViewsMocks
 
 import com.tajawa.abdallah.tajawal_android_task.Activitys.DetailsHotel.DetailsHotelContract
 
