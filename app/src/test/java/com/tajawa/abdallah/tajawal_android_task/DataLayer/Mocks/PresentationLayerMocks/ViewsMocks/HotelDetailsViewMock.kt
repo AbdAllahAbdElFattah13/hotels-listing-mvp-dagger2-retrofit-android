@@ -6,23 +6,30 @@ import com.tajawa.abdallah.tajawal_android_task.Activitys.DetailsHotel.DetailsHo
  * Created by AbdAllah Boda on 26-Mar-18.
  */
 class HotelDetailsViewMock : DetailsHotelContract.View {
+
+    lateinit var mImageUrl: String
+    lateinit var mName: String
+    lateinit var mAddress: String
+    lateinit var mLowRate: String
+    lateinit var mHighRate: String
+
     override fun setImageUrl(imageUrl: String) {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+        this.mImageUrl = imageUrl
     }
 
     override fun setHotelName(name: String) {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+        this.mName = name
     }
 
     override fun setHotelAddress(address: String) {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+        this.mAddress = address
     }
 
     override fun setLowRate(lowRate: String) {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+        this.mLowRate = lowRate
     }
 
     override fun setHighRate(highRate: String) {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+        this.mHighRate = highRate
     }
 }
