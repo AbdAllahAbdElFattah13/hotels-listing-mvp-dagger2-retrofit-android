@@ -11,11 +11,12 @@ class HotelDetailsPresenterMock : DetailsHotelContract.Presenter {
         TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
     }
 
-    override fun removeView(view: DetailsHotelContract.View) {
+    override fun removeView() {
         TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
     }
 
     override fun onGetCurrentSelectedHotelSuccess(currentHotel: HotelModel) {
         TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
     }
+
 }

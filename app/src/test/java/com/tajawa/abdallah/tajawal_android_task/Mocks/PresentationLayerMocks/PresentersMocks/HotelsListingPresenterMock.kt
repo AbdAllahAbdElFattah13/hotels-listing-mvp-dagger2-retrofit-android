@@ -12,7 +12,7 @@ class HotelsListingPresenterMock : ListingHotelsContract.Presenter {
         TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
     }
 
-    override fun removeView(view: ListingHotelsContract.View) {
+    override fun removeView() {
         TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
     }
 

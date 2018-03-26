@@ -20,11 +20,6 @@ class DetailsHotelPresenterTest {
     }
 
     @Test
-    fun removeView() {
-
-    }
-
-    @Test
     fun onGetCurrentSelectedHotelSuccess() {
         val mMockedModel = mMockedRepositorySource.getCurrentSelectedHotel()
         val view = HotelDetailsViewMock()
