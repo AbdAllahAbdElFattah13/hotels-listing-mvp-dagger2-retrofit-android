@@ -23,10 +23,14 @@ interface DetailsHotelContract {
         fun setLowRate(lowRate: String)
 
         fun setHighRate(highRate: String)
+
+        fun startFullScreenActivity()
     }
 
     interface Presenter : BasePresenter<View> {
         fun onGetCurrentSelectedHotelSuccess(currentHotel: HotelModel)
+
+        fun onHotelImageClick()
     }
 
 }

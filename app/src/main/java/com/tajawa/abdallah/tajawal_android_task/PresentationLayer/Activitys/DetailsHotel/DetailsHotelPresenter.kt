@@ -30,4 +30,9 @@ class DetailsHotelPresenter @Inject constructor(private val mDataRepo: Repositor
         mView.setHighRate(currentHotel.summary.highRate.toString())
 
     }
+
+    override fun onHotelImageClick() {
+        mDataRepo.setCurrentHotelImageUrl(mModel.image[0].url)
+        mView.startFullScreenActivity()
+    }
 }

@@ -11,7 +11,7 @@ interface RepositorySource {
     //to allow presenters to send data to each other,
     //it should be provided throw the repo.
     //refer to this link for more thought about the topic.
-    //
+    //https://stackoverflow.com/questions/42928243/how-to-share-data-between-two-presenters-in-mvp-architecture-in-android/43180152?sgp=2#43180152
     fun setCurrentSelectedHotel(currentSelectedHotelIndex: Int)
 
     fun getCurrentSelectedHotel(): HotelModel

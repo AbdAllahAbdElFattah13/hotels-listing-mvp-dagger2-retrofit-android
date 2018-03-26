@@ -24,7 +24,7 @@
             android:parentActivityName=".Activitys.ListingHotels.ListingHotelsActivity" />
         <activity
             android:name=".PresentationLayer.Activitys.FullScreenImage.FullScreenImageActivity"
-            android:theme="@android:style/Theme.Black.NoTitleBar.Fullscreen"></activity>
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar.FullScreen"></activity>
     </application>
 
 </manifest>
