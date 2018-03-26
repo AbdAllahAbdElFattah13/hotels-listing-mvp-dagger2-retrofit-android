@@ -10,13 +10,12 @@ import android.support.v7.widget.LinearLayoutManager
 import android.view.View
 import com.tajawa.abdallah.tajawal_android_task.Activitys.DetailsHotel.DetailsHotelActivity
 import com.tajawa.abdallah.tajawal_android_task.Activitys.ListingHotels.Adapters.HotelItemsAdapter.HotelItemsAdapter
-import com.tajawa.abdallah.tajawal_android_task.PresentationLayer.BasePresenter
-import com.tajawa.abdallah.tajawal_android_task.DataLayer.DataRepository
-import com.tajawa.abdallah.tajawal_android_task.DataLayer.Remote.Volley.RemoteDataSourceUsingVolley
 import com.tajawa.abdallah.tajawal_android_task.R
+import com.tajawa.abdallah.tajawal_android_task.TajawalApp
 import kotlinx.android.synthetic.main.activity_listing_hotels.*
 import kotlinx.android.synthetic.main.error_view.*
 import kotlinx.android.synthetic.main.loading_view.*
+import javax.inject.Inject
 
 class ListingHotelsActivity : AppCompatActivity(), ListingHotelsContract.View {
 
@@ -24,7 +23,8 @@ class ListingHotelsActivity : AppCompatActivity(), ListingHotelsContract.View {
     private var mComingBackFromChild: Boolean = false
     private val mRequestCodeToDetectedIfComingBackFromChildActivity = 1
 
-    private lateinit var mPresenter: BasePresenter
+    @Inject
+    lateinit var mPresenter: ListingHotelsContract.Presenter
 
     private fun showError(errMsg: String) {
         if (errMsg.isEmpty()) {
@@ -55,6 +55,8 @@ class ListingHotelsActivity : AppCompatActivity(), ListingHotelsContract.View {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_listing_hotels)
 
+        (application as TajawalApp).mTajawalComponent.inject(this)
+
         val li = LinearLayoutManager(this)
         val dividerItemDecoration = DividerItemDecoration(this, li.orientation)
         rv_hotels_listing.layoutManager = li
@@ -64,20 +66,22 @@ class ListingHotelsActivity : AppCompatActivity(), ListingHotelsContract.View {
         progress_view.color = ContextCompat.getColor(this, R.color.colorLoading)
 
         //Injecting Dependencies
-        mPresenter = ListingHotelsPresenter(
-                DataRepository.getInstance(
-                        RemoteDataSourceUsingVolley.getInstance(this)
-                ), this)
+//        mPresenter = ListingHotelsPresenter(
+//                DataRepository.getInstance(
+//                        RemoteDataSourceUsingVolley.getInstance(this)
+//                ), this)
+        (application as TajawalApp).mTajawalComponent.inject(this)
     }
 
     override fun onResume() {
         super.onResume()
-        if (!mComingBackFromChild) mPresenter.start()
+        if (!mComingBackFromChild) mPresenter.setView(this)
     }
 
     override fun onPause() {
         super.onPause()
         mComingBackFromChild = false
+        mPresenter.removeView(this)
     }
 
     override fun setLoading(loading: Boolean) {

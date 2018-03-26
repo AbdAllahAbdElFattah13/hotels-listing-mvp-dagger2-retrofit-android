@@ -2,8 +2,8 @@ package com.tajawa.abdallah.tajawal_android_task.Activitys.ListingHotels
 
 import com.tajawa.abdallah.tajawal_android_task.Activitys.ListingHotels.Adapters.HotelItemsAdapter.HotelItemViewHolder
 import com.tajawa.abdallah.tajawal_android_task.Activitys.ListingHotels.Adapters.HotelItemsAdapter.HotelItemsAdapter
-import com.tajawa.abdallah.tajawal_android_task.PresentationLayer.BasePresenter
 import com.tajawa.abdallah.tajawal_android_task.DataLayer.Models.HotelsModel.HotelsModel
+import com.tajawa.abdallah.tajawal_android_task.PresentationLayer.BasePresenter
 
 /**
  * Created by AbdAllah Abd-El-Fattah on 23-Mar-18.
@@ -27,7 +27,7 @@ interface ListingHotelsContract {
         fun startDetailsActivity()
     }
 
-    interface Presenter : BasePresenter {
+    interface Presenter : BasePresenter<View> {
         fun onGetHotelsSuccess(hotelsMode: HotelsModel)
 
         fun onGetHotelsFail(err: String)

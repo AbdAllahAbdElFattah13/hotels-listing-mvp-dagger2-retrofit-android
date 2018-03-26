@@ -10,9 +10,8 @@ import android.view.View
 import android.widget.ImageView
 import android.widget.RelativeLayout
 import com.tajawa.abdallah.tajawal_android_task.Activitys.ImageLoaderUtil
-import com.tajawa.abdallah.tajawal_android_task.DataLayer.DataRepository
-import com.tajawa.abdallah.tajawal_android_task.DataLayer.Remote.Volley.RemoteDataSourceUsingVolley
 import com.tajawa.abdallah.tajawal_android_task.R
+import com.tajawa.abdallah.tajawal_android_task.TajawalApp
 import kotlinx.android.synthetic.main.activity_details_hotel.*
 
 
@@ -44,10 +43,7 @@ class DetailsHotelActivity : AppCompatActivity(), DetailsHotelContract.View {
         tv_hotel_high_rate.paintFlags = tv_hotel_high_rate.paintFlags + Paint.STRIKE_THRU_TEXT_FLAG
 
         //Injecting Dependencies
-        DetailsHotelPresenter(
-                DataRepository.getInstance(
-                        RemoteDataSourceUsingVolley.getInstance(this)
-                ), this).start()
+        (application as TajawalApp).mTajawalComponent.inject(this)
     }
 
     override fun setImageUrl(imageUrl: String) {

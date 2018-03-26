@@ -2,19 +2,24 @@ package com.tajawa.abdallah.tajawal_android_task.Activitys.DetailsHotel
 
 import com.tajawa.abdallah.tajawal_android_task.DataLayer.Models.HotelsModel.HotelModel
 import com.tajawa.abdallah.tajawal_android_task.DataLayer.RepositorySource
+import javax.inject.Inject
 
 /**
  * Created by AbdAllah Abd-El-Fattah on 23-Mar-18.
  */
-class DetailsHotelPresenter(val repositorySource: RepositorySource, val view: DetailsHotelContract.View) : DetailsHotelContract.Presenter {
+class DetailsHotelPresenter @Inject constructor(val mDataRepo: RepositorySource) : DetailsHotelContract.Presenter {
 
-    private val mDataRepo = repositorySource
-    private val mView = view
+    private lateinit var mView: DetailsHotelContract.View
     private lateinit var mModel: HotelModel
 
-    override fun start() {
+    override fun setView(view: DetailsHotelContract.View) {
+        mView = view
         mModel = mDataRepo.getCurrentSelectedHotel()
         onGetCurrentSelectedHotelSuccess(mModel)
+    }
+
+    override fun removeView(view: DetailsHotelContract.View) {
+        //to do any clearing up required
     }
 
     override fun onGetCurrentSelectedHotelSuccess(currentHotel: HotelModel) {

@@ -1,7 +1,7 @@
 package com.tajawa.abdallah.tajawal_android_task.Activitys.DetailsHotel
 
-import com.tajawa.abdallah.tajawal_android_task.PresentationLayer.BasePresenter
 import com.tajawa.abdallah.tajawal_android_task.DataLayer.Models.HotelsModel.HotelModel
+import com.tajawa.abdallah.tajawal_android_task.PresentationLayer.BasePresenter
 
 /**
  * Created by AbdAllah Abd-El-Fattah on 23-Mar-18.
@@ -25,7 +25,7 @@ interface DetailsHotelContract {
         fun setHighRate(highRate: String)
     }
 
-    interface Presenter : BasePresenter {
+    interface Presenter : BasePresenter<View> {
         fun onGetCurrentSelectedHotelSuccess(currentHotel: HotelModel)
     }
 

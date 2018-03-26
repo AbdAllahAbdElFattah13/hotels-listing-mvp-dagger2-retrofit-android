@@ -3,13 +3,12 @@ package com.tajawa.abdallah.tajawal_android_task.DataLayer
 import com.tajawa.abdallah.tajawal_android_task.DataLayer.Models.HotelsModel.HotelModel
 import com.tajawa.abdallah.tajawal_android_task.DataLayer.Models.HotelsModel.HotelsModel
 import com.tajawa.abdallah.tajawal_android_task.DataLayer.Remote.RemoteDataSource
+import javax.inject.Inject
 
 /**
  * Created by AbdAllah Abd-El-Fattah on 23-Mar-18.
  */
-class DataRepository private constructor(remoteDataSource: RemoteDataSource) : RepositorySource {
-
-    private val mRemoteDataSource: RemoteDataSource = remoteDataSource
+class DataRepository @Inject constructor(private val mRemoteDataSource: RemoteDataSource) : RepositorySource {
 
     private var mHotelsModel: HotelsModel? = null
     private var mCurrentSelectedHotelIndex: Int = -1
@@ -47,13 +46,13 @@ class DataRepository private constructor(remoteDataSource: RemoteDataSource) : R
         return mHotelsModel!!.hotel[mCurrentSelectedHotelIndex]
     }
 
-    companion object {
-        private var INSTANCE: DataRepository? = null
-
-        fun getInstance(remoteDataSource: RemoteDataSource): DataRepository {
-            if (INSTANCE == null)
-                INSTANCE = DataRepository(remoteDataSource)
-            return INSTANCE!!
-        }
-    }
+//    companion object {
+//        private var INSTANCE: DataRepository? = null
+//
+//        fun getInstance(remoteDataSource: RemoteDataSource): DataRepository {
+//            if (INSTANCE == null)
+//                INSTANCE = DataRepository(remoteDataSource)
+//            return INSTANCE!!
+//        }
+//    }
 }

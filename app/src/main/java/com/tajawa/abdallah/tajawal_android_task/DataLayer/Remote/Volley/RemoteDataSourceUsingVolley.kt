@@ -1,6 +1,5 @@
 package com.tajawa.abdallah.tajawal_android_task.DataLayer.Remote.Volley
 
-import android.content.Context
 import android.util.Log
 import com.android.volley.Request
 import com.android.volley.Response
@@ -11,16 +10,15 @@ import com.tajawa.abdallah.tajawal_android_task.DataLayer.Remote.EndPoints
 import com.tajawa.abdallah.tajawal_android_task.DataLayer.Remote.RemoteDataSource
 import org.json.JSONObject
 import java.util.*
+import javax.inject.Inject
 
 
 /**
  * Created by AbdAllah Abd-El-Fattah on 23-Mar-18.
  */
 
-class RemoteDataSourceUsingVolley private constructor(context: Context) : RemoteDataSource {
+class RemoteDataSourceUsingVolley @Inject constructor(private val mQueue: VolleyImplementation) : RemoteDataSource {
     private val TAG = "B.remoteDSVolley"
-
-    private var mQueue: VolleyImplementation = VolleyImplementation.getInstance(context)
 
     private fun <ResponseType> getDefaultErrorHandler(callbacks: BaseNetworkCallbacks<ResponseType>): Response.ErrorListener {
         return Response.ErrorListener { error ->
@@ -62,13 +60,13 @@ class RemoteDataSourceUsingVolley private constructor(context: Context) : Remote
         this.sendGetGsonRequest<HotelsModel>(EndPoints.HotelsEndPoint, HotelsModel::class.java, callbacks)
     }
 
-    companion object {
-        private var INSTANCE: RemoteDataSourceUsingVolley? = null
-
-        fun getInstance(context: Context): RemoteDataSourceUsingVolley {
-            if (INSTANCE == null)
-                INSTANCE = RemoteDataSourceUsingVolley(context)
-            return INSTANCE!!
-        }
-    }
+//    companion object {
+//        private var INSTANCE: RemoteDataSourceUsingVolley? = null
+//
+//        fun getInstance(context: Context): RemoteDataSourceUsingVolley {
+//            if (INSTANCE == null)
+//                INSTANCE = RemoteDataSourceUsingVolley(context)
+//            return INSTANCE!!
+//        }
+//    }
 }

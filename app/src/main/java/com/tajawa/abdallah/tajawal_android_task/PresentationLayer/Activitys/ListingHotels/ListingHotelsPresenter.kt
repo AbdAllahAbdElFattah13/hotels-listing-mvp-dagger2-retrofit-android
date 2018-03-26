@@ -4,19 +4,20 @@ import com.tajawa.abdallah.tajawal_android_task.Activitys.ListingHotels.Adapters
 import com.tajawa.abdallah.tajawal_android_task.Activitys.ListingHotels.Adapters.HotelItemsAdapter.HotelItemViewHolder
 import com.tajawa.abdallah.tajawal_android_task.Activitys.ListingHotels.Adapters.HotelItemsAdapter.HotelItemsAdapter
 import com.tajawa.abdallah.tajawal_android_task.DataLayer.Callbacks
-import com.tajawa.abdallah.tajawal_android_task.DataLayer.DataRepository
 import com.tajawa.abdallah.tajawal_android_task.DataLayer.Models.HotelsModel.HotelsModel
+import com.tajawa.abdallah.tajawal_android_task.DataLayer.RepositorySource
+import javax.inject.Inject
 
 /**
  * Created by AbdAllah Abd-El-Fattah on 23-Mar-18.
  */
-class ListingHotelsPresenter(val dataRepository: DataRepository, val view: ListingHotelsContract.View) : ListingHotelsContract.Presenter, HotelItemRowView.HandleOnHotelItemClick {
+class ListingHotelsPresenter @Inject constructor(private val mDataRepo: RepositorySource) : ListingHotelsContract.Presenter, HotelItemRowView.HandleOnHotelItemClick {
 
-    private val mDataRepo = dataRepository
-    private val mView = view
+    private lateinit var mView: ListingHotelsContract.View
     private lateinit var mModel: HotelsModel
 
-    override fun start() {
+    override fun setView(view: ListingHotelsContract.View) {
+        mView = view
         mView.setLoading(loading = true)
         mDataRepo.getHotels(object : Callbacks.GetHotelsCallbacks {
             override fun onSuccess(result: HotelsModel) {
@@ -27,6 +28,10 @@ class ListingHotelsPresenter(val dataRepository: DataRepository, val view: Listi
                 onGetHotelsFail(err)
             }
         })
+    }
+
+    override fun removeView(view: ListingHotelsContract.View) {
+        //to do any clearing logic required
     }
 
     override fun onGetHotelsSuccess(hotelsMode: HotelsModel) {
