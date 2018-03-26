@@ -22,6 +22,7 @@
         <activity
             android:name=".Activitys.DetailsHotel.DetailsHotelActivity"
             android:parentActivityName=".Activitys.ListingHotels.ListingHotelsActivity" />
+        <activity android:name=".PresentationLayer.Activitys.FullScreenImage.FullScreenImageActivity"></activity>
     </application>
 
 </manifest>
