@@ -31,7 +31,7 @@ class HotelItemViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView), H
     }
 
     override fun setImage(imageUrl: String) {
-        ImageLoaderUtil.loadImage(url = imageUrl, imageView = mImageIv)
+        ImageLoaderUtil.loadImage(url = imageUrl, imageView = mImageIv, w = -1)
     }
 
     override fun onClick(v: View) {

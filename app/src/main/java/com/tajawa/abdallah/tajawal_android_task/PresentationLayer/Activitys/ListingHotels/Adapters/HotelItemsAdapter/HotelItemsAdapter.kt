@@ -20,7 +20,7 @@ class HotelItemsAdapter(val presenter: ListingHotelsContract.Presenter) : Recycl
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): HotelItemViewHolder {
         val context = parent.context
-        val layoutIdForListItem = R.layout.hotel_item_view
+        val layoutIdForListItem = R.layout.hotel_item_view_for_staggered_grid_layout
         val inflater = LayoutInflater.from(context)
         val shouldAttachToParentImmediately = false
 
