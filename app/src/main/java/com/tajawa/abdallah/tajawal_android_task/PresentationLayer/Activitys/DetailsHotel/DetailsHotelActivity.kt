@@ -1,5 +1,6 @@
 package com.tajawa.abdallah.tajawal_android_task.Activitys.DetailsHotel
 
+import android.app.Activity
 import android.content.res.Resources
 import android.graphics.Paint
 import android.os.Bundle
@@ -22,6 +23,8 @@ class DetailsHotelActivity : AppCompatActivity(), DetailsHotelContract.View {
     lateinit var mPresenter: DetailsHotelContract.Presenter
     private var isImageFitScreen: Boolean = false
 
+    private var mResult: Int = RESULT_CANCELED
+
     // Note: 19-Jul-17 this might fail according to the following link "https://stackoverflow.com/questions/42673531/converting-dp-to-px-without-context"
     private fun fromIntToDp(n: Int): Int = TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, n.toFloat(), Resources.getSystem().displayMetrics).toInt()
 
@@ -42,6 +45,8 @@ class DetailsHotelActivity : AppCompatActivity(), DetailsHotelContract.View {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_details_hotel)
+
+        if (savedInstanceState != null) mResult = Activity.RESULT_OK
 
         tv_hotel_high_rate.paintFlags = tv_hotel_high_rate.paintFlags + Paint.STRIKE_THRU_TEXT_FLAG
 
@@ -91,7 +96,7 @@ class DetailsHotelActivity : AppCompatActivity(), DetailsHotelContract.View {
         if (isImageFitScreen) {
             toggleImageFullScreen()
         } else {
-            setResult(RESULT_CANCELED)
+            setResult(mResult)
             finish()
             super.onBackPressed()
         }
