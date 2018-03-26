@@ -6,5 +6,5 @@ package com.tajawa.abdallah.tajawal_android_task.PresentationLayer
 interface BasePresenter<tView> {
     fun setView(view: tView)
 
-    fun removeView(view: tView)
+    fun removeView()
 }
