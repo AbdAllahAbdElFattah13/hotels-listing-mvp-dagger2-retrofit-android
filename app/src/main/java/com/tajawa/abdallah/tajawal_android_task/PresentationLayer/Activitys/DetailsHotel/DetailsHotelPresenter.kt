@@ -18,7 +18,7 @@ class DetailsHotelPresenter @Inject constructor(private val mDataRepo: Repositor
         onGetCurrentSelectedHotelSuccess(mModel)
     }
 
-    override fun removeView(view: DetailsHotelContract.View) {
+    override fun removeView() {
         //to do any clearing up required
     }
 

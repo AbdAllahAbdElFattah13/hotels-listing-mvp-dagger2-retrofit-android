@@ -30,7 +30,7 @@ class ListingHotelsPresenter @Inject constructor(private val mDataRepo: Reposito
         })
     }
 
-    override fun removeView(view: ListingHotelsContract.View) {
+    override fun removeView() {
         //to do any clearing logic required
     }
 

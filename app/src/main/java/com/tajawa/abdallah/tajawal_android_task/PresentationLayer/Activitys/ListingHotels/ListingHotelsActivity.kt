@@ -51,7 +51,7 @@ class ListingHotelsActivity : AppCompatActivity(), ListingHotelsContract.View {
     override fun onPause() {
         super.onPause()
         mComingBackFromChild = false
-        mPresenter.removeView(this)
+        mPresenter.removeView()
     }
 
     override fun setLoading(loading: Boolean) {
