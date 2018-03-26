@@ -12,6 +12,7 @@ class DataRepository @Inject constructor(private val mRemoteDataSource: RemoteDa
 
     private var mHotelsModel: HotelsModel? = null
     private var mCurrentSelectedHotelIndex: Int = -1
+    private lateinit var mCurrentHotelImageUrl: String
 
     override fun getHotels(callbacks: Callbacks.GetHotelsCallbacks) {
         mRemoteDataSource.getHotels(object : Callbacks.GetHotelsCallbacks {
@@ -46,13 +47,10 @@ class DataRepository @Inject constructor(private val mRemoteDataSource: RemoteDa
         return mHotelsModel!!.hotel[mCurrentSelectedHotelIndex]
     }
 
-//    companion object {
-//        private var INSTANCE: DataRepository? = null
-//
-//        fun getInstance(remoteDataSource: RemoteDataSource): DataRepository {
-//            if (INSTANCE == null)
-//                INSTANCE = DataRepository(remoteDataSource)
-//            return INSTANCE!!
-//        }
-//    }
+    override fun setCurrentHotelImageUrl(imageUrl: String) {
+        if (imageUrl.trim().isEmpty()) throw  IllegalArgumentException("Illegal string for image url")
+        mCurrentHotelImageUrl = imageUrl
+    }
+
+    override fun getCurrentHotelImageUrl(): String = mCurrentHotelImageUrl
 }

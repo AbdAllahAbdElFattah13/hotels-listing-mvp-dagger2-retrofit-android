@@ -2,6 +2,7 @@ package com.tajawa.abdallah.tajawal_android_task.DI
 
 import com.tajawa.abdallah.tajawal_android_task.Activitys.DetailsHotel.DetailsHotelActivity
 import com.tajawa.abdallah.tajawal_android_task.Activitys.ListingHotels.ListingHotelsActivity
+import com.tajawa.abdallah.tajawal_android_task.PresentationLayer.Activitys.FullScreenImage.FullScreenImageActivity
 import dagger.Component
 import javax.inject.Singleton
 
@@ -15,4 +16,6 @@ interface AppComponent {
     fun inject(target: ListingHotelsActivity)
 
     fun inject(target: DetailsHotelActivity)
+
+    fun inject(target: FullScreenImageActivity)
 }

@@ -5,6 +5,8 @@ import com.tajawa.abdallah.tajawal_android_task.Activitys.DetailsHotel.DetailsHo
 import com.tajawa.abdallah.tajawal_android_task.Activitys.ListingHotels.ListingHotelsContract
 import com.tajawa.abdallah.tajawal_android_task.Activitys.ListingHotels.ListingHotelsPresenter
 import com.tajawa.abdallah.tajawal_android_task.DataLayer.RepositorySource
+import com.tajawa.abdallah.tajawal_android_task.PresentationLayer.Activitys.FullScreenImage.FullScreenImageContract
+import com.tajawa.abdallah.tajawal_android_task.PresentationLayer.Activitys.FullScreenImage.FullScreenImagePresenter
 import dagger.Module
 import dagger.Provides
 import javax.inject.Singleton
@@ -21,5 +23,9 @@ class PresenterModule {
     @Provides
     @Singleton
     fun provideDetailsHotelPresenter(repositorySource: RepositorySource): DetailsHotelContract.Presenter = DetailsHotelPresenter(repositorySource)
+
+    @Provides
+    @Singleton
+    fun provideFullScreenImagePresenter(repositorySource: RepositorySource): FullScreenImageContract.Presenter = FullScreenImagePresenter(repositorySource)
 
 }
