@@ -11,6 +11,7 @@ import javax.inject.Singleton
 @Singleton
 @Component(modules = [ContextModule::class, DataLayerModule::class, PresenterModule::class])
 interface AppComponent {
+
     fun inject(target: ListingHotelsActivity)
 
     fun inject(target: DetailsHotelActivity)
