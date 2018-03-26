@@ -33,7 +33,6 @@ class ListingHotelsActivity : AppCompatActivity(), ListingHotelsContract.View {
         (application as TajawalApp).mTajawalComponent.inject(this)
 
         val li = StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL)
-        val dividerItemDecoration = DividerItemDecoration(this, li.orientation)
         rv_hotels_listing.layoutManager = li
         rv_hotels_listing.setHasFixedSize(true)
 
