@@ -26,31 +26,6 @@ class ListingHotelsActivity : AppCompatActivity(), ListingHotelsContract.View {
     @Inject
     lateinit var mPresenter: ListingHotelsContract.Presenter
 
-    private fun showError(errMsg: String) {
-        if (errMsg.isEmpty()) {
-            error_view.visibility = View.GONE
-        } else {
-            error_view.visibility = View.VISIBLE
-            tv_error_msg.text = errMsg
-        }
-    }
-
-    private fun showLoading(loading: Boolean) {
-        if (loading) {
-            loading_view.visibility = View.VISIBLE
-        } else {
-            loading_view.visibility = View.GONE
-        }
-    }
-
-    private fun showData(show: Boolean) {
-        if (show) {
-            rv_hotels_listing.visibility = View.VISIBLE
-        } else {
-            rv_hotels_listing.visibility = View.GONE
-        }
-    }
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_listing_hotels)
@@ -65,11 +40,6 @@ class ListingHotelsActivity : AppCompatActivity(), ListingHotelsContract.View {
 
         progress_view.color = ContextCompat.getColor(this, R.color.colorLoading)
 
-        //Injecting Dependencies
-//        mPresenter = ListingHotelsPresenter(
-//                DataRepository.getInstance(
-//                        RemoteDataSourceUsingVolley.getInstance(this)
-//                ), this)
         (application as TajawalApp).mTajawalComponent.inject(this)
     }
 
@@ -86,24 +56,21 @@ class ListingHotelsActivity : AppCompatActivity(), ListingHotelsContract.View {
 
     override fun setLoading(loading: Boolean) {
         if (mLoading == loading) return
-        if (loading) {
-            showLoading(true)
-        } else {
-            showLoading(false)
-        }
+
+        val dataVisibility = !loading
+        rv_hotels_listing.visibility = if (dataVisibility) View.VISIBLE else View.GONE
+        loading_view.visibility = if (loading) View.VISIBLE else View.GONE
+
         mLoading = loading
     }
 
-    override fun handleSuccess() {
-        showLoading(false)
-        showError("")
-        showData(true)
-    }
-
-    override fun handleError(errMsg: String) {
-        showLoading(false)
-        showData(false)
-        showError(errMsg)
+    override fun setError(errMsg: String) {
+        if (errMsg.isEmpty()) {
+            error_view.visibility = View.GONE
+        } else {
+            error_view.visibility = View.VISIBLE
+            tv_error_msg.text = errMsg
+        }
     }
 
     override fun setHotelItemsAdapter(hotelItemsAdapter: HotelItemsAdapter) {

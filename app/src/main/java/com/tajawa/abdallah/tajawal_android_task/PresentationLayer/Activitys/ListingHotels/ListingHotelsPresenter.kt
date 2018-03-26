@@ -37,12 +37,13 @@ class ListingHotelsPresenter @Inject constructor(private val mDataRepo: Reposito
     override fun onGetHotelsSuccess(hotelsMode: HotelsModel) {
         mModel = hotelsMode
         mView.setHotelItemsAdapter(HotelItemsAdapter(presenter = this@ListingHotelsPresenter))
-        mView.handleSuccess()
+        mView.setError("")
         mView.setLoading(loading = false)
     }
 
     override fun onGetHotelsFail(err: String) {
-        mView.handleError(errMsg = err)
+        mView.setLoading(loading = false)
+        mView.setError(errMsg = err)
     }
 
     override fun onBindHotelRowViewAtPosition(holder: HotelItemViewHolder, Position: Int) {
