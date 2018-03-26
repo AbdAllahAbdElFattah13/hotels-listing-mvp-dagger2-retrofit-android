@@ -1,8 +1,8 @@
-package com.tajawa.abdallah.tajawal_android_task.DataLayer.Mocks
+package com.tajawa.abdallah.tajawal_android_task.DataLayer.Mocks.DataLayerMocks
 
 import android.content.Context
 import com.tajawa.abdallah.tajawal_android_task.DataLayer.Callbacks
-import com.tajawa.abdallah.tajawal_android_task.DataLayer.Models.HotelsModel.*
+import com.tajawa.abdallah.tajawal_android_task.DataLayer.Mocks.DataLayerMocks.ModelsMocks.HotelsModelMock
 import com.tajawa.abdallah.tajawal_android_task.DataLayer.Remote.RemoteDataSource
 
 /**
@@ -15,17 +15,7 @@ class RemoteDataSourceMock private constructor(context: Context) : RemoteDataSou
 
     private var willSuccess: Boolean = true
 
-    val mockedModel: HotelsModel = HotelsModel(listOf(HotelModel(
-            SummaryModel(
-                    highRate = 6386.04,
-                    hotelName = "Coral Oriental Dubai",
-                    lowRate = 4958.58),
-            image = listOf(ImageModel("https://az712897.vo.msecnd.net/images/full/A1EE945E-166C-4AC0-BB73-00B1D8F5DEF0.jpeg")),
-            location = LocationModel(
-                    address = "Burj Nahar Roundabout, Naif Road,",
-                    latitude = 25.275914,
-                    longitude = 55.313262), hotelId = 4020979
-    )))
+    val mockedModel = HotelsModelMock.getHotels()
 
 
     fun setSuccess(success: Boolean) {
