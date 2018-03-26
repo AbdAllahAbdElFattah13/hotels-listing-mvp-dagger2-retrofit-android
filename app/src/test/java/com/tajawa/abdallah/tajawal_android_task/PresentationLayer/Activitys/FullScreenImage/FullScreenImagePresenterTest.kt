@@ -18,7 +18,7 @@ class FullScreenImagePresenterTest {
         mPresenterUnderTesting.setView(view)
         assert(mPresenterUnderTesting.mView is FullScreenImageViewMock)
 
-        //the presenter will set the url into the view from the passed-in repo
+        //the presenter will set the url into the view from the passed-in repo.
         assert(view.mUrl.equals(mRepositorySourceMock.getCurrentHotelImageUrl()))
     }
 
