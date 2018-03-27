@@ -34,7 +34,11 @@ class FullScreenImageActivity : AppCompatActivity(), FullScreenImageContract.Vie
         ImageLoaderUtil.loadImage(url, iv_hotel_image, -1)
     }
 
-    fun onImageViewClick(v: View) {
+    override fun finishView() {
         finish()
+    }
+
+    fun onImageViewClick(v: View) {
+        mPresenter.onImageClick()
     }
 }

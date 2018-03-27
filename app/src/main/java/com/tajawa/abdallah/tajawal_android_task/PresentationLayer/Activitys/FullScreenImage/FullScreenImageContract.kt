@@ -8,7 +8,13 @@ import com.tajawa.abdallah.tajawal_android_task.PresentationLayer.BasePresenter
 interface FullScreenImageContract {
     interface View {
         fun setImageUrl(url: String)
+
+        fun finishView()
     }
 
-    interface Presenter : BasePresenter<View>
+    interface Presenter : BasePresenter<View> {
+        //in the spirit of MVP, all actions happens in the view
+        //should be passed to presenter, even the small ones.
+        fun onImageClick()
+    }
 }

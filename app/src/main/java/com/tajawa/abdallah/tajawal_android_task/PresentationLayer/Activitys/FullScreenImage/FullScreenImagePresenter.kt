@@ -18,4 +18,10 @@ class FullScreenImagePresenter @Inject constructor(private val mRepositorySource
     override fun removeView() {
         mView = null
     }
+
+    override fun onImageClick() {
+        if (mView == null)
+            throw IllegalStateException("Calling with onImageClick with mView = null. (i.e: before calling setView")
+        mView!!.finishView()
+    }
 }

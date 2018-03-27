@@ -8,8 +8,13 @@ import com.tajawa.abdallah.tajawal_android_task.PresentationLayer.Activitys.Full
 class FullScreenImageViewMock : FullScreenImageContract.View {
 
     var mUrl = ""
+    var finished = false
 
     override fun setImageUrl(url: String) {
         mUrl = url
+    }
+
+    override fun finishView() {
+        finished = true
     }
 }

@@ -2,6 +2,7 @@ package com.tajawa.abdallah.tajawal_android_task.PresentationLayer.Activitys.Ful
 
 import com.tajawa.abdallah.tajawal_android_task.Mocks.DataLayerMocks.RepositorySourceMock
 import com.tajawa.abdallah.tajawal_android_task.Mocks.PresentationLayerMocks.ViewsMocks.FullScreenImageViewMock
+import org.junit.Before
 import org.junit.Test
 
 /**
@@ -10,7 +11,12 @@ import org.junit.Test
 class FullScreenImagePresenterTest {
 
     val mRepositorySourceMock = RepositorySourceMock()
-    val mPresenterUnderTesting = FullScreenImagePresenter(mRepositorySourceMock)
+    lateinit var mPresenterUnderTesting: FullScreenImagePresenter
+
+    @Before
+    fun initTests() {
+        mPresenterUnderTesting = FullScreenImagePresenter(mRepositorySourceMock)
+    }
 
     @Test
     fun setView() {
@@ -28,4 +34,18 @@ class FullScreenImagePresenterTest {
         assert(mPresenterUnderTesting.mView == null)
     }
 
+    @Test(expected = IllegalStateException::class)
+    fun onImageClick_shouldThrow() {
+        //will throw, we didn't init the mView
+        mPresenterUnderTesting.onImageClick()
+    }
+
+    @Test
+    fun onImageClick() {
+        val view = FullScreenImageViewMock()
+        mPresenterUnderTesting.setView(view)
+        mPresenterUnderTesting.onImageClick()
+
+        assert(view.finished)
+    }
 }
