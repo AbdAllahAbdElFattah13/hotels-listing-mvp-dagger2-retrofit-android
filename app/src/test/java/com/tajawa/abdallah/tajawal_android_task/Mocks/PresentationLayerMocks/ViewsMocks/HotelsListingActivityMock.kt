@@ -7,13 +7,21 @@ import com.tajawa.abdallah.tajawal_android_task.Activitys.ListingHotels.ListingH
  * Created by AbdAllah Boda on 26-Mar-18.
  */
 class HotelsListingActivityMock : ListingHotelsContract.View {
+
+    var mLoading: Boolean = false
+    lateinit var mError: String
+    var mHotelItemsAdapter: HotelItemsAdapter? = null
+
     override fun setLoading(loading: Boolean) {
+        this.mLoading = loading
     }
 
     override fun setError(errMsg: String) {
+        this.mError = errMsg
     }
 
     override fun setHotelItemsAdapter(hotelItemsAdapter: HotelItemsAdapter) {
+        mHotelItemsAdapter = hotelItemsAdapter
     }
 
     override fun startDetailsActivity() {

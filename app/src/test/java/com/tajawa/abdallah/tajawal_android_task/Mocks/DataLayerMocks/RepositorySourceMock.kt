@@ -13,9 +13,10 @@ class RepositorySourceMock : RepositorySource {
     val mMockedModel = HotelsModelMock.getHotels()
     var mMockedCurrentSelectedHotel = -1
     var mCurrentHotelImage = ""
+    var mCallSuccessCallbacks = true
 
     override fun getHotels(callbacks: Callbacks.GetHotelsCallbacks) {
-        callbacks.onSuccess(mMockedModel)
+        if (mCallSuccessCallbacks) callbacks.onSuccess(mMockedModel) else callbacks.onError("failed")
     }
 
     override fun setCurrentSelectedHotel(currentSelectedHotelIndex: Int) {

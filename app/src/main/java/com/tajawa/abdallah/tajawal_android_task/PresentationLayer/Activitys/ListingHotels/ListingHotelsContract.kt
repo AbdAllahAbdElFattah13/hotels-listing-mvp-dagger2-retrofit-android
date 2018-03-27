@@ -1,6 +1,6 @@
 package com.tajawa.abdallah.tajawal_android_task.Activitys.ListingHotels
 
-import com.tajawa.abdallah.tajawal_android_task.Activitys.ListingHotels.Adapters.HotelItemsAdapter.HotelItemViewHolder
+import com.tajawa.abdallah.tajawal_android_task.Activitys.ListingHotels.Adapters.HotelItemsAdapter.HotelItemRowView
 import com.tajawa.abdallah.tajawal_android_task.Activitys.ListingHotels.Adapters.HotelItemsAdapter.HotelItemsAdapter
 import com.tajawa.abdallah.tajawal_android_task.DataLayer.Models.HotelsModel.HotelsModel
 import com.tajawa.abdallah.tajawal_android_task.PresentationLayer.BasePresenter
@@ -30,7 +30,7 @@ interface ListingHotelsContract {
 
         fun onGetHotelsFail(err: String)
 
-        fun onBindHotelRowViewAtPosition(holder: HotelItemViewHolder, Position: Int)
+        fun onBindHotelRowViewAtPosition(holder: HotelItemRowView, Position: Int)
 
         fun getHotelNumbers(): Int
     }

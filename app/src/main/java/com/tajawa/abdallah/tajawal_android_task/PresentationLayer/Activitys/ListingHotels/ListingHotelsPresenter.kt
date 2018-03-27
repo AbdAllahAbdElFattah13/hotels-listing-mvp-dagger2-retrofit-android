@@ -1,7 +1,6 @@
 package com.tajawa.abdallah.tajawal_android_task.Activitys.ListingHotels
 
 import com.tajawa.abdallah.tajawal_android_task.Activitys.ListingHotels.Adapters.HotelItemsAdapter.HotelItemRowView
-import com.tajawa.abdallah.tajawal_android_task.Activitys.ListingHotels.Adapters.HotelItemsAdapter.HotelItemViewHolder
 import com.tajawa.abdallah.tajawal_android_task.Activitys.ListingHotels.Adapters.HotelItemsAdapter.HotelItemsAdapter
 import com.tajawa.abdallah.tajawal_android_task.DataLayer.Callbacks
 import com.tajawa.abdallah.tajawal_android_task.DataLayer.Models.HotelsModel.HotelsModel
@@ -13,8 +12,8 @@ import javax.inject.Inject
  */
 class ListingHotelsPresenter @Inject constructor(private val mDataRepo: RepositorySource) : ListingHotelsContract.Presenter, HotelItemRowView.HandleOnHotelItemClick {
 
-    private lateinit var mView: ListingHotelsContract.View
-    private lateinit var mModel: HotelsModel
+    lateinit var mView: ListingHotelsContract.View
+    lateinit var mModel: HotelsModel
 
     override fun setView(view: ListingHotelsContract.View) {
         mView = view
@@ -46,7 +45,7 @@ class ListingHotelsPresenter @Inject constructor(private val mDataRepo: Reposito
         mView.setError(errMsg = err)
     }
 
-    override fun onBindHotelRowViewAtPosition(holder: HotelItemViewHolder, Position: Int) {
+    override fun onBindHotelRowViewAtPosition(holder: HotelItemRowView, Position: Int) {
         val sCurrentHotel = mModel.hotel[Position]
         holder.setOnHotelItemClickHandler(this)
         holder.setTitle(sCurrentHotel.summary.hotelName)
