@@ -22,6 +22,8 @@ interface ListingHotelsContract {
 
         fun setHotelItemsAdapter(hotelItemsAdapter: HotelItemsAdapter)
 
+        fun isComingFromChild(): Boolean
+
         fun startDetailsActivity()
     }
 

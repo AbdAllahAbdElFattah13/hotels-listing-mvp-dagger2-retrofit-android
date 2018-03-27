@@ -31,10 +31,6 @@ class ListingHotelsActivity : AppCompatActivity(), ListingHotelsContract.View {
 
         (application as TajawalApp).mTajawalComponent.inject(this)
 
-        val layoutManager = StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL)
-        rv_hotels_listing.layoutManager = layoutManager
-        rv_hotels_listing.setHasFixedSize(true)
-
         progress_view.color = ContextCompat.getColor(this, R.color.colorLoading)
 
         (application as TajawalApp).mTajawalComponent.inject(this)
@@ -42,12 +38,11 @@ class ListingHotelsActivity : AppCompatActivity(), ListingHotelsContract.View {
 
     override fun onResume() {
         super.onResume()
-        if (!mComingBackFromChild) mPresenter.setView(this)
+        mPresenter.setView(this)
     }
 
     override fun onPause() {
         super.onPause()
-        mComingBackFromChild = false
         mPresenter.removeView()
     }
 
@@ -71,8 +66,13 @@ class ListingHotelsActivity : AppCompatActivity(), ListingHotelsContract.View {
     }
 
     override fun setHotelItemsAdapter(hotelItemsAdapter: HotelItemsAdapter) {
+        val layoutManager = StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL)
+        rv_hotels_listing.layoutManager = layoutManager
+        rv_hotels_listing.setHasFixedSize(true)
         rv_hotels_listing.adapter = hotelItemsAdapter
     }
+
+    override fun isComingFromChild(): Boolean = mComingBackFromChild
 
     override fun startDetailsActivity() {
         mComingBackFromChild = false
