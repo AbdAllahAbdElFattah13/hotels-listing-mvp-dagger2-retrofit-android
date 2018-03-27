@@ -1,23 +1,36 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:card_view="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/card_view"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
-    android:layout_margin="@dimen/padding_default"
-    android:orientation="vertical">
+    android:layout_marginBottom="16dp"
+    card_view:cardCornerRadius="@dimen/padding_default"
+    card_view:cardUseCompatPadding="true">
 
-    <ImageView
-        android:id="@+id/iv_hotel_image"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_margin="@dimen/padding_default"
-        android:adjustViewBounds="true" />
-
-    <TextView
-        android:id="@+id/tv_title"
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="aaaa"
-        android:textAlignment="center"
-        android:textSize="@dimen/material_text_title" />
+        android:layout_height="match_parent">
 
-</LinearLayout>
+        <ImageView
+            android:id="@+id/iv_hotel_image"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:adjustViewBounds="true" />
+
+        <TextView
+            android:id="@+id/tv_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_below="@+id/iv_hotel_image"
+            android:background="@color/colorLoading"
+            android:gravity="center_horizontal"
+            android:paddingBottom="@dimen/padding_default"
+            android:paddingTop="@dimen/padding_default"
+            android:textColor="@color/colorAccent"
+            android:textSize="@dimen/material_text_body1" />
+
+    </RelativeLayout>
+
+</android.support.v7.widget.CardView>

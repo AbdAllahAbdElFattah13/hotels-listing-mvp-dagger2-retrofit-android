@@ -5,7 +5,6 @@ import android.content.Intent
 import android.os.Bundle
 import android.support.v4.content.ContextCompat
 import android.support.v7.app.AppCompatActivity
-import android.support.v7.widget.DividerItemDecoration
 import android.support.v7.widget.StaggeredGridLayoutManager
 import android.view.View
 import com.tajawa.abdallah.tajawal_android_task.Activitys.DetailsHotel.DetailsHotelActivity
@@ -32,8 +31,8 @@ class ListingHotelsActivity : AppCompatActivity(), ListingHotelsContract.View {
 
         (application as TajawalApp).mTajawalComponent.inject(this)
 
-        val li = StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL)
-        rv_hotels_listing.layoutManager = li
+        val layoutManager = StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL)
+        rv_hotels_listing.layoutManager = layoutManager
         rv_hotels_listing.setHasFixedSize(true)
 
         progress_view.color = ContextCompat.getColor(this, R.color.colorLoading)
