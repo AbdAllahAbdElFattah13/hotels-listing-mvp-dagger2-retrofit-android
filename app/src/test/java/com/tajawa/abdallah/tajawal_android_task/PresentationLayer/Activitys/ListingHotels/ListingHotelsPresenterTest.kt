@@ -21,7 +21,6 @@ class ListingHotelsPresenterTest {
     fun initPresenter() {
         mPresenterUnderTest = ListingHotelsPresenter(RepositorySourceMock())
         mViewMock = HotelsListingActivityMock()
-        mPresenterUnderTest.setView(mViewMock)
     }
 
     @Test
@@ -30,11 +29,20 @@ class ListingHotelsPresenterTest {
         assert(mPresenterUnderTest.mView is HotelsListingActivityMock)
     }
 
+    @Test(expected = IllegalStateException::class)
+    fun onGetHotelsSuccess_shouldThrow() {
+        //will throw, haven't set the view at first
+        mPresenterUnderTest.onGetHotelsSuccess(mRepositorySourceMock.mMockedModel)
+    }
+
     @Test
     fun onGetHotelsSuccess() {
+        //setting the view
+        mPresenterUnderTest.setView(mViewMock)
+
         mPresenterUnderTest.onGetHotelsSuccess(mRepositorySourceMock.mMockedModel)
         //set view will call getHotelsSuccess internally, which will first set the model
-        assert(mPresenterUnderTest.mModel.equals(mRepositorySourceMock.mMockedModel))
+        assert(mPresenterUnderTest.mModel!!.equals(mRepositorySourceMock.mMockedModel))
         //then stop the loading..
         assert(!mViewMock.mLoading)
         //and delete any error msgs
@@ -43,8 +51,17 @@ class ListingHotelsPresenterTest {
         assert(mViewMock.mHotelItemsAdapter != null)
     }
 
+    @Test(expected = RuntimeException::class)
+    fun onGetHotelsFails_shouldThrow() {
+        //will throw, haven't set the view at first, thus the model is empty. (i.e mModel = null)
+        mPresenterUnderTest.onGetHotelsFail("")
+    }
+
     @Test
     fun onGetHotelsFail() {
+        //setting the view
+        mPresenterUnderTest.setView(mViewMock)
+
         val errMsg = "Failed"
         mPresenterUnderTest.onGetHotelsFail(errMsg)
 
@@ -52,6 +69,13 @@ class ListingHotelsPresenterTest {
         assert(!mViewMock.mLoading)
         //and should get the error msg
         assert(errMsg.equals(mViewMock.mError))
+    }
+
+    @Test(expected = IllegalStateException::class)
+    fun onBindHotelRowViewAtPosition_shouldThrow() {
+        val sHotelRowViewMock = HotelRowViewMock()
+        //i.e empty model
+        mPresenterUnderTest.onBindHotelRowViewAtPosition(sHotelRowViewMock, 0)
     }
 
     @Test
@@ -72,8 +96,8 @@ class ListingHotelsPresenterTest {
 
     }
 
-    @Test
-    fun getHotelNumbers() {
+    @Test(expected = IllegalStateException::class)
+    fun getHotelNumbers_shouldThrow() {
         val expected = mRepositorySourceMock.mMockedModel.hotel.size
         val found = mPresenterUnderTest.getHotelNumbers()
 
@@ -81,7 +105,29 @@ class ListingHotelsPresenterTest {
     }
 
     @Test
+    fun getHotelNumbers() {
+        //setting the view, to init the model
+        mPresenterUnderTest.setView(mViewMock)
+
+        val expected = mRepositorySourceMock.mMockedModel.hotel.size
+        val found = mPresenterUnderTest.getHotelNumbers()
+
+        assert(expected == found)
+    }
+
+    @Test(expected = IllegalStateException::class)
+    fun onHotelItemClick_shouldThrow() {
+        val expectedIndex = 7
+        mPresenterUnderTest.onHotelItemClick(expectedIndex)
+        val foundIndex = mRepositorySourceMock.mMockedCurrentSelectedHotel
+        assert(expectedIndex == foundIndex)
+    }
+
+    @Test
     fun onHotelItemClick() {
+        //setting the view
+        mPresenterUnderTest.setView(mViewMock)
+
         val expectedIndex = 7
         mPresenterUnderTest.onHotelItemClick(expectedIndex)
         val foundIndex = mRepositorySourceMock.mMockedCurrentSelectedHotel
