@@ -17,10 +17,9 @@ class ListingHotelsPresenter @Inject constructor(private val mDataRepo: Reposito
 
     override fun setView(view: ListingHotelsContract.View) {
         mView = view
-        /**
-         * if (created || recreated && !comingFromChild)
-         *
-         */
+
+        if (view.isComingFromChild()) return
+
         mView!!.setLoading(loading = true)
         mDataRepo.getHotels(object : Callbacks.GetHotelsCallbacks {
             override fun onSuccess(result: HotelsModel) {

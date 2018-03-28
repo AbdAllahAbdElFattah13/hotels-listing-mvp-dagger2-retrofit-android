@@ -1,6 +1,5 @@
 package com.tajawa.abdallah.tajawal_android_task.Activitys.ListingHotels
 
-import android.app.Activity
 import android.content.Intent
 import android.os.Bundle
 import android.support.v4.content.ContextCompat
@@ -20,7 +19,6 @@ class ListingHotelsActivity : AppCompatActivity(), ListingHotelsContract.View {
 
     private var mLoading: Boolean = false
     private var mComingBackFromChild: Boolean = false
-    private val mRequestCodeToDetectedIfComingBackFromChildActivity = 1
 
     @Inject
     lateinit var mPresenter: ListingHotelsContract.Presenter
@@ -31,9 +29,10 @@ class ListingHotelsActivity : AppCompatActivity(), ListingHotelsContract.View {
 
         (application as TajawalApp).mTajawalComponent.inject(this)
 
-        progress_view.color = ContextCompat.getColor(this, R.color.colorLoading)
+        if (savedInstanceState != null) //i.e re-created when coming from child -> we have to reload date
+            mComingBackFromChild = false
 
-        (application as TajawalApp).mTajawalComponent.inject(this)
+        progress_view.color = ContextCompat.getColor(this, R.color.colorLoading)
     }
 
     override fun onResume() {
@@ -75,15 +74,8 @@ class ListingHotelsActivity : AppCompatActivity(), ListingHotelsContract.View {
     override fun isComingFromChild(): Boolean = mComingBackFromChild
 
     override fun startDetailsActivity() {
-        mComingBackFromChild = false
-        startActivityForResult(Intent(this, DetailsHotelActivity::class.java), mRequestCodeToDetectedIfComingBackFromChildActivity)
-    }
-
-    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
-        super.onActivityResult(requestCode, resultCode, data)
-        if (requestCode == mRequestCodeToDetectedIfComingBackFromChildActivity
-                && resultCode == Activity.RESULT_CANCELED)
-            mComingBackFromChild = true
+        mComingBackFromChild = true
+        startActivity(Intent(this, DetailsHotelActivity::class.java))
     }
 
 }

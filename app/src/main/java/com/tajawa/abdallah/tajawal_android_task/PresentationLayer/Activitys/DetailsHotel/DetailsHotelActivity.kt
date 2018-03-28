@@ -1,12 +1,9 @@
 package com.tajawa.abdallah.tajawal_android_task.Activitys.DetailsHotel
 
-import android.app.Activity
 import android.content.Intent
-import android.content.res.Resources
 import android.graphics.Paint
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
-import android.util.TypedValue
 import android.view.MenuItem
 import android.view.View
 import com.tajawa.abdallah.tajawal_android_task.Activitys.ImageLoaderUtil
@@ -22,17 +19,9 @@ class DetailsHotelActivity : AppCompatActivity(), DetailsHotelContract.View {
     @Inject
     lateinit var mPresenter: DetailsHotelContract.Presenter
 
-    private var mResult: Int = RESULT_CANCELED
-
-    // Note: 19-Jul-17 this might fail according to the following link "https://stackoverflow.com/questions/42673531/converting-dp-to-px-without-context"
-    private fun fromIntToDp(n: Int): Int = TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, n.toFloat(), Resources.getSystem().displayMetrics).toInt()
-
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_details_hotel)
-
-        if (savedInstanceState != null) mResult = Activity.RESULT_OK
 
         tv_hotel_high_rate.paintFlags = tv_hotel_high_rate.paintFlags + Paint.STRIKE_THRU_TEXT_FLAG
 
@@ -76,12 +65,6 @@ class DetailsHotelActivity : AppCompatActivity(), DetailsHotelContract.View {
 
     fun onImageViewClick(view: View) {
         mPresenter.onHotelImageClick()
-    }
-
-    override fun onBackPressed() {
-        setResult(mResult)
-        finish()
-        super.onBackPressed()
     }
 
     override fun startFullScreenActivity() {
