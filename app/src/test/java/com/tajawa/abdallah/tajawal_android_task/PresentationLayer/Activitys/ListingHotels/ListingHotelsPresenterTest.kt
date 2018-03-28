@@ -132,7 +132,12 @@ class ListingHotelsPresenterTest {
         mPresenterUnderTest.onHotelItemClick(expectedIndex)
         val foundIndex = mRepositorySourceMock.mMockedCurrentSelectedHotel
 
+        //index reached data repo successfully..
         assert(expectedIndex == foundIndex)
+        //isComingFromHome flag has been set
+        assert(mViewMock.isComingFromChild())
+        //and finally opening the Details View
+        assert(mViewMock.mDetailsViewStarted)
     }
 
 }

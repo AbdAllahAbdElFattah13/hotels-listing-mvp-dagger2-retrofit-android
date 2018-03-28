@@ -11,6 +11,8 @@ class HotelsListingActivityMock : ListingHotelsContract.View {
     var mLoading: Boolean = false
     lateinit var mError: String
     var mHotelItemsAdapter: HotelItemsAdapter? = null
+    var mComingFromHome: Boolean = false
+    var mDetailsViewStarted: Boolean = false
 
     override fun setLoading(loading: Boolean) {
         this.mLoading = loading
@@ -24,6 +26,10 @@ class HotelsListingActivityMock : ListingHotelsContract.View {
         mHotelItemsAdapter = hotelItemsAdapter
     }
 
+    override fun isComingFromChild(): Boolean = mComingFromHome
+
     override fun startDetailsActivity() {
+        mComingFromHome = true
+        mDetailsViewStarted = true
     }
 }

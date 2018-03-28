@@ -10,7 +10,8 @@ import com.tajawa.abdallah.tajawal_android_task.Mocks.DataLayerMocks.ModelsMocks
  */
 class RepositorySourceMock : RepositorySource {
 
-    val mMockedModel = HotelsModelMock.getHotels()
+    var mMockedModel = HotelsModelMock.getHotels()
+    var mSecondaryModel = HotelsModelMock.getSecondaryHotels()
     var mMockedCurrentSelectedHotel = -1
     var mCurrentHotelImage = ""
     var mCallSuccessCallbacks = true
@@ -30,4 +31,10 @@ class RepositorySourceMock : RepositorySource {
     }
 
     override fun getCurrentHotelImageUrl(): String = mMockedModel.hotel[0].image[0].url
+
+    fun swapMockedModels() {
+        val temp = mMockedModel.copy()
+        mMockedModel = mSecondaryModel.copy()
+        mSecondaryModel = temp.copy()
+    }
 }
