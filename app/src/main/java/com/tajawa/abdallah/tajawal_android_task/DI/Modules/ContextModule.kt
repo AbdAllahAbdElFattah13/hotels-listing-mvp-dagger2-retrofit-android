@@ -1,4 +1,4 @@
-package com.tajawa.abdallah.tajawal_android_task.DI
+package com.tajawa.abdallah.tajawal_android_task.DI.Modules
 
 import android.app.Application
 import android.content.Context

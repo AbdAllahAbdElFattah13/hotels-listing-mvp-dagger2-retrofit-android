@@ -1,4 +1,4 @@
-package com.tajawa.abdallah.tajawal_android_task.DI
+package com.tajawa.abdallah.tajawal_android_task.DI.Modules
 
 import com.tajawa.abdallah.tajawal_android_task.Activitys.DetailsHotel.DetailsHotelContract
 import com.tajawa.abdallah.tajawal_android_task.Activitys.DetailsHotel.DetailsHotelPresenter

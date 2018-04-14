@@ -1,9 +1,9 @@
 package com.tajawa.abdallah.tajawal_android_task
 
 import android.app.Application
-import com.tajawa.abdallah.tajawal_android_task.DI.AppComponent
-import com.tajawa.abdallah.tajawal_android_task.DI.ContextModule
-import com.tajawa.abdallah.tajawal_android_task.DI.DaggerAppComponent
+import com.tajawa.abdallah.tajawal_android_task.DI.Components.AppComponent
+import com.tajawa.abdallah.tajawal_android_task.DI.Components.DaggerAppComponent
+import com.tajawa.abdallah.tajawal_android_task.DI.Modules.ContextModule
 
 /**
  * Created by AbdAllah Boda on 25-Mar-18.
