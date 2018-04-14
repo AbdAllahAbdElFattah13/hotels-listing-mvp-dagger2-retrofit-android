@@ -60,13 +60,4 @@ class RemoteDataSourceUsingVolley @Inject constructor(private val mQueue: Volley
         this.sendGetGsonRequest<HotelsModel>(EndPoints.HotelsEndPoint, HotelsModel::class.java, callbacks)
     }
 
-//    companion object {
-//        private var INSTANCE: RemoteDataSourceUsingVolley? = null
-//
-//        fun getInstance(context: Context): RemoteDataSourceUsingVolley {
-//            if (INSTANCE == null)
-//                INSTANCE = RemoteDataSourceUsingVolley(context)
-//            return INSTANCE!!
-//        }
-//    }
 }

@@ -16,18 +16,4 @@ class VolleyImplementation @Inject constructor(context: Context) {
     fun <T> addToRequestQueue(req: Request<T>) {
         mRequestQueue.add(req)
     }
-
-//    companion object {
-//        @Volatile
-//        private var ourInstance: VolleyImplementation? = null
-//
-//
-//        @Synchronized
-//        fun getInstance(context: Context): VolleyImplementation {
-//            if (ourInstance == null) {
-//                ourInstance = VolleyImplementation(context)
-//            }
-//            return ourInstance!!
-//        }
-//    }
 }
