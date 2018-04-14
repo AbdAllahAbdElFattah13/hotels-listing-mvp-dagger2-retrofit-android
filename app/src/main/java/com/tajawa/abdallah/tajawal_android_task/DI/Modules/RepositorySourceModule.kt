@@ -5,6 +5,7 @@ import com.tajawa.abdallah.tajawal_android_task.DataLayer.Remote.RemoteDataSourc
 import com.tajawa.abdallah.tajawal_android_task.DataLayer.RepositorySource
 import dagger.Module
 import dagger.Provides
+import javax.inject.Named
 import javax.inject.Singleton
 
 /**
@@ -14,5 +15,5 @@ import javax.inject.Singleton
 class RepositorySourceModule {
     @Provides
     @Singleton
-    fun provideRepositorySource(remoteDataSource: RemoteDataSource): RepositorySource = DataRepository(remoteDataSource)
+    fun provideRepositorySource(@Named("retrofit") remoteDataSource: RemoteDataSource): RepositorySource = DataRepository(remoteDataSource)
 }
