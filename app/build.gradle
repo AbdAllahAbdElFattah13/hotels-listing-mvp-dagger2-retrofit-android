@@ -4,7 +4,7 @@ apply plugin: 'kotlin-kapt'
 
 android {
     compileSdkVersion 26
-    buildToolsVersion "26.0.3"
+    buildToolsVersion '27.0.3'
 
     defaultConfig {
         applicationId "com.tajawa.abdallah.tajawal_android_task"
@@ -29,23 +29,23 @@ dependencies {
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'com.android.support.test:runner:1.0.1'
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.1'
-    compile "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
 
-    compile 'com.google.code.gson:gson:2.8.0'
-    compile 'com.android.volley:volley:1.0.0'
-    compile 'com.android.support:appcompat-v7:26.1.0'
-    compile 'com.android.support:design:26.1.0'
-    compile 'com.android.support:recyclerview-v7:26.1.0'
-    compile 'com.github.rahatarmanahmed:circularprogressview:2.5.0'
-    compile 'com.squareup.picasso:picasso:2.5.2'
+    implementation 'com.google.code.gson:gson:2.8.2'
+    implementation 'com.android.volley:volley:1.0.0'
+    implementation 'com.android.support:appcompat-v7:26.1.0'
+    implementation 'com.android.support:design:26.1.0'
+    implementation 'com.android.support:recyclerview-v7:26.1.0'
+    implementation 'com.github.rahatarmanahmed:circularprogressview:2.5.0'
+    implementation 'com.squareup.picasso:picasso:2.5.2'
     implementation 'com.google.dagger:dagger:2.13'
     kapt 'com.google.dagger:dagger-compiler:2.13'
-    provided 'javax.annotation:jsr250-api:1.0'
-    compile 'com.android.support:cardview-v7:26.1.0'
+    compileOnly 'javax.annotation:jsr250-api:1.0'
+    implementation 'com.android.support:cardview-v7:26.1.0'
 
 //    implementation 'com.squareup.picasso:picasso:2.61828'
 
-    testCompile "org.mockito:mockito-core:1.+"
+    testImplementation "org.mockito:mockito-core:1.+"
 }
 repositories {
     mavenCentral()
