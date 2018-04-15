@@ -1,4 +1,4 @@
-# tajawal-android-task
+# hotels-listing-mvp-dagger2-retrofit-android
 Source code of a Kotlin Android app, using Volley or Retrofit, Materials, Dagger 2 and Picasso.
 
 # Code Features
